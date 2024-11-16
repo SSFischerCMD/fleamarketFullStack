@@ -7,26 +7,7 @@
     <title>Registrierung</title>
 </head>
 <body id="flexingCenter">
-    <h1>Sie haben noch kein Account.</h1>
-    <h2>Ihre Daten werden gespeichert und verarbeitet.</h2>
-
     <div id="login">
-        <form method="POST" action="">
-            <label for="userName">Benutzername:</label>
-            <input type="text" id="userName" name="userName" required>
-            <br><br>
-
-            <label for="email">E-Mail:</label>
-            <input type="email" id="email" name="email" required>
-            <br><br>
-
-            <label for="userPassword">Passwort:</label>
-            <input type="password" id="userPassword" name="userPassword" required>
-            <br><br>
-
-            <button type="submit">Registrieren</button>
-        </form>
-
         <?php
         // Include the database configuration
         include 'config.php';
@@ -56,6 +37,7 @@
         }
         ?>
     </div>
+    <br>
     <a href="..\user_login.html">zum Login</a>
 </body>
 </html>

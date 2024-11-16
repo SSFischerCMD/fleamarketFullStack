@@ -11,9 +11,5 @@ for (var i=0; i<4; i++){
 }
 
 //event handler
-
-
-
-
-
+// element.addEventListener(event, function, useCapture);
 // document.addEventListener("DOMContentLoaded", function() {}

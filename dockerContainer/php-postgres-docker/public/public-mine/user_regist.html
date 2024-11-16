@@ -2,10 +2,11 @@
 <html>
     <head>
         <title>Registration Form</title>
-        <link rel="stylesheet" href="..\user.css">
+        <link rel="stylesheet" href="user.css">
     </head>
     <body id="flexingCenter">
         <div id="login">
+            <h1>Registierung</h1>
             <form action="server\newUser.php" method="POST">
                 <label for="userName">username:</label><br>
                 <input type="text" id="userName" name="userName"><br>
@@ -16,7 +17,7 @@
                 <br>
                 <input type="submit" value="registrieren">
             </form>
+            <p>Schon ein Konto? <a href="user_login.html">Hier gehts zum Login</a>.</p>
         </div> 
-        <p>Schon ein Konto? <a href="user_login.php">Hier gehts zum Login</a>.</p>
     </body>
 </html>
