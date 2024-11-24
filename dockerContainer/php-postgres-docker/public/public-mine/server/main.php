@@ -30,7 +30,7 @@
             <div class="flexContainer">
                 <a class="articleButton" href="">my studies</a>
                 <a class="articleButton" href="..\testingJS.html">my work</a>
-                <a class="articleButton" href="">my expertise</a>
+                <a class="articleButton" href="..\testingfetch.html">fetching stuff</a>
                 <a class="articleButton" href="">my hobies</a>
             </div>
         </nav>

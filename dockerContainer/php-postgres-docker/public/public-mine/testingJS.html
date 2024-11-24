@@ -6,7 +6,7 @@
     <body>
         <header>
             <a href="server\main.php">back to main</a>
-             <h1>counter</h1><br>
+             <h1 class="headerh1">counter</h1><br>
         </header>
         <nav>
             <div class="flexContainer">
@@ -17,10 +17,13 @@
             </div>
         </nav>
         <main>
-                
-                <button type="button" id="sub">-</button>
+            <div id="containMain">
+                 <button type="button" id="sub" class="counterButtons">-</button>
                 <p id="counter"></p>
-                <button type="button" id="add">+</button>
+                <button type="button" id="add"  class="counterButtons">+</button>
+            </div>
+                 <button type="button" id="double">double the power</button>
+                 <p id="power">power: 1</p>
         </main>
         <footer>
         </footer>

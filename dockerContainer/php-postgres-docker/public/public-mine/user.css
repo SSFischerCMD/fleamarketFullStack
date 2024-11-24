@@ -55,11 +55,19 @@ nav {
         }
 
 main {
-    height: 50%;
+    min-height: fit-content;
     display: flex;
-    align-items: center;   
+    align-items: center;  
+    flex-direction: column;   
     justify-content: center;
     background-color: rgb(252, 255, 209);
+}
+#containMain{
+    min-height: fit-content;
+    display: flex;
+    align-items: center; 
+    flex-direction: row;  
+    justify-content: center;
 }
 footer {
     background-color: palevioletred;
@@ -83,9 +91,12 @@ button {
     margin: 5%;
     padding: 1%;
 }
+.counterButtons{
+    margin: 50%;
+    padding-inline: 5pt;
+}
 /* schrift */
-h1 {
+.headerh1 {
     font-size: 900%;
-    text-align: center;
-    
+    text-align: center;   
 }
