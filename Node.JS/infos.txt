@@ -1,0 +1,323 @@
+
+<clientseitiges JavaScript>
+    <was ist JavaScript>
+
+        = Skriptsprache, die ursprünglich entwickelt wurde, um interaktive Funktionen und dynamische Inhalte auf Webseiten bereitzustellen. 
+        = interpreted language (der Code wird zur Laufzeit von einem Interpreter direkt ausgeführt.) 
+            Der Interpreter ist ein Programm oder eine Umgebung, die den Quellcode in Echtzeit liest und ausführt.
+
+        Skriptsprache - beschreibt den Verwendungszweck der Sprache
+        Eine Skriptsprache ist eine Programmiersprache, die ursprünglich entwickelt wurde, 
+        um relativ einfache Aufgaben und Abläufe zu automatisieren oder bestehende Anwendungen zu steuern. 
+        Skriptsprachen werden oft für kleinere Programme verwendet, die in eine andere Software eingebettet sind 
+        (z. B. in einen Webbrowser oder einen Webserver) oder die eine größere Anwendung unterstützen.
+        Beispiele für Skriptsprachen sind: JavaScript, Python, Perl und Lua.
+        Skriptsprachen werden häufig zur Automatisierung, für Datenverarbeitung, Webentwicklung und ähnliches genutzt.
+        
+        Interpreted Language (interpretierte Sprache) - beschreibt, wie der Code ausgeführt wird
+        Eine interpreted language ist eine Sprache, deren Code zur Laufzeit von einem Interpreter Zeile für Zeile gelesen und ausgeführt wird, 
+        anstatt in einer separaten Vorabphase komplett in Maschinencode übersetzt (kompiliert) zu werden. 
+        Das bedeutet, dass ein Interpreter den Code Zeile für Zeile oder Block für Block einliest und sofort ausführt.
+        Beispiele für interpretierte Sprachen sind JavaScript, Python und Ruby.
+
+        <IMPORTANT>
+            manche Sprachen haben aber auch JIT-Compiler (Just-in-Time-Compiler), 
+            die oft genutzte Codeabschnitte während der Laufzeit optimieren und so schneller machen 
+            (wie es bei der V8-Engine von Google für JavaScript der Fall ist).
+        </IMPORTANT>
+
+    <Javascript Funktionsweise>
+
+        <Vorarbeit: Umwandlung des HTML-Codes in ein DOM>
+
+            Das DOM ist die Grundlage, mit der der Browser versteht, welche Inhalte und Struktur die HTML-Seite hat.
+            Ohne DOM könnte der Browser den Inhalt nicht korrekt rendern und anzeigen.
+
+            Die Umwandlung von HTML in das DOM wird vom HTML-Parser( Teil des Rendering-Engine) durchgeführt.
+
+            HTML-code wird vom Browser geladen und gelesen Der HTML-Parser analysiert den Code und überprüft die Struktur 
+                    > Während dieser Analyse erzeugt der Parser eine hierarchische Baumstruktur – das DOM-Baum-Modell.
+                    > Falls es CSS gibt, wird ein CSSOM (CSS Object Model) erzeugt.
+
+            Rendering-Engine: kombiniert das DOM und das CSSOM, um daraus die sichtbare Webseite (Renderbaum) zu erstellen und darzustellen.
+
+        <Javascript Ausführung>
+
+            Wann braucht JavaScript das DOM?
+                Das DOM wird dann benötigt, wenn JavaScript mit einer Webseite interagieren soll.
+                JavaScript ist unabhängig vom DOM. Es kann mit dem DOM interagieren,
+                wenn es im Browser verwendet wird, aber es ist nicht darauf angewiesen, um zu funktionieren.
+
+            Der JavaScript-Interpreter führt den JavaScript-Code aus, 
+            der dann auf den bereits erstellten DOM-Baum zugreift und ihn manipulieren kann. 
+
+            alle gängigen Browser (Chrome, Firefox, Safari usw.) haben ihre eigenen JavaScript-Engines integriert. 
+            Diese Engines sind spezialisierte Interpreter, die JavaScript-Code verarbeiten und die Funktionen und Befehle ausführen, 
+            die auf Webseiten eingebettet sind.
+
+            Beispiele für solche Engines sind:
+                V8 in Google Chrome und Node.js
+                SpiderMonkey in Mozilla Firefox
+                JavaScriptCore (auch „Nitro“ genannt) in Safari
+            Jede dieser Engines interpretiert und führt den JavaScript-Code aus, der in HTML-Seiten eingebettet ist 
+            Damit JavaScript im Browser funktioniert, muss der Browser mit einer solchen Engine ausgestattet sein.
+
+            Auch Node.js ist eine Laufzeitumgebung, die die V8-Engine nutzt, um JavaScript außerhalb des Browsers auszuführen. 
+            Dadurch kann JavaScript nicht nur für clientseitige, sondern auch für serverseitige Anwendungen genutzt werden.
+
+            Zusammengefasst ist der Browser also der ursprüngliche und wichtigste Interpreter für JavaScript,
+            aber nicht der einzige. Moderne JavaScript-Engines und -Laufzeitumgebungen haben die Sprache über den Browser hinaus erweitert 
+            und bieten neue Anwendungsfelder in verschiedenen Kontexten.
+
+        <Wie funktioniert eine JavaScript-Engine?>
+            Eine JavaScript-Engine besteht aus mehreren Komponenten, die zusammenarbeiten, um den JavaScript-Code möglichst effizient auszuführen. 
+            Moderne Engines wie V8 in Chrome verwenden spezielle Techniken zur Codeoptimierung, wie Just-in-Time-Compilation (JIT).
+
+            Funktionsweise im Detail:
+                Einlesen und Parsen (Parsing): 
+                    Die Engine beginnt, den JavaScript-Code zu analysieren, indem sie ihn in kleinere Bestandteile, sogenannte Tokens, 
+                    aufteilt und daraus einen Syntaxbaum (Abstract Syntax Tree, AST) erstellt, der die logische Struktur des Codes darstellt.
+
+                Bytecode-Generierung: 
+                    Die Engine übersetzt den AST in eine Form, die schneller ausgeführt werden kann, den Bytecode. 
+                    Der Bytecode ist eine vereinfachte, intermediäre Repräsentation des Codes, die vom JIT-Compiler optimiert werden kann.
+
+                Just-in-Time-Kompilierung (JIT): 
+                    In modernen JavaScript-Engines übersetzt ein JIT-Compiler Teile des Bytecodes, die häufig verwendet werden, in Maschinencode, 
+                    um die Ausführungsgeschwindigkeit zu erhöhen. So kann der JavaScript-Code beinahe so schnell laufen wie nativ kompilierter Code.
+
+                Garbage Collection: 
+                    JavaScript-Engines beinhalten außerdem Mechanismen zur Garbage Collection – das bedeutet, 
+                    dass sie automatisch Speicher freigeben, der von nicht mehr benötigten Variablen und Objekten verwendet wurde, 
+                    um effizient Speicher zu verwalten.
+
+            Vorteile
+                Hohe Geschwindigkeit: 
+                    JIT-Compiler und moderne Optimierungstechniken machen die Ausführung von JavaScript-Code sehr schnell und effizient.
+                Speicherverwaltung: 
+                    Dank automatischer Garbage Collection müssen sich Entwickler weniger um die manuelle Speicherverwaltung kümmern.
+                Plattformunabhängigkeit: 
+                    JavaScript-Engines sind in Webbrowsern eingebettet und sorgen dafür, dass JavaScript plattformübergreifend funktioniert.
+            Nachteile
+                Speicher- und Leistungsbelastung: 
+                    Die Optimierungen und der Overhead durch JIT-Compilation und Garbage Collection können 
+                    auf schwächeren Geräten zu hohen Speicheranforderungen und Leistungseinbußen führen.
+                Komplexität: Moderne 
+                    JavaScript-Engines sind sehr komplex, und es kann schwierig sein, den Code so zu schreiben, dass er in jeder Engine 
+                    und jedem Kontext optimal läuft.
+                Nicht für rechenintensive Anwendungen: 
+                    Trotz Optimierungen ist JavaScript durch seine Interpretationsnatur und die Garbage Collection weniger geeignet 
+                    für sehr rechenintensive Aufgaben im Vergleich zu nativ kompilierter Sprachen wie C++.
+
+
+
+-----------------------------------
+    <JavaScript Code>
+
+Async/Await und Promises sind Werkzeuge in JavaScript, die dir helfen,
+ asynchrone Operationen wie Datenabrufe oder zeitgesteuerte Aufgaben einfacher und lesbarer zu handhaben.
+
+Wo funktioniert JavaScript noch? Außerhalb von Browsern (Node.js):
+
+    JavaScript kann mit Node.js auf Servern verwendet werden. In diesem Fall gibt es kein DOM, da keine Webseiten angezeigt werden.
+    Stattdessen bietet Node.js andere APIs, z. B. für Dateioperationen, Netzwerkanfragen oder den Zugriff auf Datenbanken.
+
+
+Node.JS 
+
+    <was ist Node.JS>
+
+        eine JavaScript-Laufzeitumgebung, die es ermöglicht, JavaScript-Code außerhalb eines Webbrowsers, 
+        wie z. B. auf einem Server, auszuführen. 
+        Ursprünglich war JavaScript auf den Browser beschränkt, um interaktive Elemente auf Webseiten zu erstellen. 
+
+        Node.js basiert auf der V8-JavaScript-Engine von Google, die den JavaScript-Code in maschinennahe Anweisungen 
+        umwandelt und so eine hohe Geschwindigkeit und Effizienz bietet. Es wurde für skalierbare Netzwerkanwendungen entwickelt 
+        und verwendet ein asynchrones, eventgesteuertes Modell, das besonders gut für Anwendungen geeignet ist, die eine große Anzahl 
+        gleichzeitiger Verbindungen benötigen, wie z. B. Webserver, APIs und Echtzeitanwendungen.
+        Node.js wird oft für die Entwicklung moderner Webanwendungen, REST-APIs, Echtzeitchat-Anwendungen und vieler anderer Serveranwendungen verwendet. 
+
+    <wie funktioniert Node.JS>
+
+        1. JavaScript außerhalb des Browsers
+            Im Browser wird JavaScript für interaktive Webseiten verwendet (z. B. Animationen, Formulare). 
+            Node.js erweitert JavaScript, sodass es direkt auf deinem Computer oder Server ausgeführt werden kann, 
+            ohne einen Browser. Mit Node.js kann JavaScript:
+                Dateien lesen und schreiben.
+                Netzwerkanfragen verarbeiten (z. B. HTTP-Server).
+                Datenbanken ansprechen.
+
+        2. Die V8-Engine
+            Node.js nutzt die V8-Engine, die ursprünglich für den Chrome-Browser entwickelt wurde. Diese Engine:
+                Wandelt JavaScript-Code in Maschinencode um (der vom Computer direkt ausgeführt wird).
+                Ist extrem schnell und effizient.
+        
+        3. Non-blocking I/O (Nicht blockierender Input/Output)
+            Node.js ist für asynchrone (gleichzeitige) Aufgaben ausgelegt. Das bedeutet:
+            Es kann mehrere Aufgaben gleichzeitig verwalten, ohne darauf zu warten, dass eine einzelne Aufgabe abgeschlossen wird.
+                
+                Beispiel: Wenn Node.js Daten aus einer Datenbank abruft, wartet es nicht, sondern bearbeitet in der Zwischenzeit andere Aufgaben.
+                
+                Beispiel für Non-blocking I/O:
+                    Angenommen, ein Server muss drei Anfragen verarbeiten:
+
+                    Anfrage 1 fragt Daten aus einer Datei ab.
+                    Anfrage 2 empfängt eine Nachricht von einem Nutzer.
+                    Anfrage 3 sendet eine Antwort an einen anderen Nutzer.
+                    Node.js startet die Dateioperation (Anfrage 1) und bearbeitet währenddessen die Anfragen 2 und 3.
+                    Sobald die Dateioperation fertig ist, meldet sie sich zurück und Node.js liefert die Antwort aus.
+                    Das wird durch die Event Loop ermöglicht.
+
+        4. Event Loop (Ereignisschleife)
+            Die Event Loop ist das Herzstück von Node.js. Sie koordiniert alle Aufgaben und sorgt dafür, dass Node.js effizient arbeitet:
+
+            Eingehende Ereignisse (z. B. Nutzeranfragen oder Netzwerkoperationen) kommen in eine Warteschlange.
+            Die Event Loop prüft die Warteschlange und verarbeitet die Aufgaben.
+            Wenn eine Aufgabe abgeschlossen ist, wird die nächste Aufgabe aus der Warteschlange genommen.
+            Die Event Loop macht Node.js besonders leistungsfähig bei Anwendungen mit vielen gleichzeitigen Verbindungen (z. B. Webservern).
+
+        5. Module-System
+            Node.js hat ein Modul-System, das den Code in wiederverwendbare Einheiten unterteilt:
+
+            Core-Module: Node.js bringt viele fertige Module mit, z. B.:
+            http für die Erstellung eines Webservers.
+            fs für Dateisystemoperationen.
+            os für Informationen über das Betriebssystem.
+            npm (Node Package Manager): Damit kannst du externe Module und Bibliotheken installieren (z. B. Express.js für Webanwendungen).
+           
+            Beispiel:
+                const http = require('http'); // Importiert das http-Modul
+                http.createServer((req, res) => {
+                res.writeHead(200, { 'Content-Type': 'text/plain' });
+                res.end('Hello World');
+                }).listen(3000);
+
+        6. Single-Threaded, aber Skalierbar
+            Node.js läuft in einem einzigen Thread (Einzelstrang). 
+            Es verarbeitet Aufgaben jedoch asynchron, sodass es nicht durch lang andauernde Aufgaben blockiert wird. 
+            Wenn eine Aufgabe rechenintensiv ist, kann Node.js:
+
+            Arbeiter-Threads nutzen (im Hintergrund laufen).
+            Last auf mehrere CPU-Kerne verteilen (Cluster-Modul).
+        
+        7. Typische Anwendungsszenarien
+            Node.js eignet sich besonders für:
+
+            Echtzeit-Anwendungen: Chat-Apps, Online-Spiele, Live-Updates.
+            APIs: Backends, die Daten an Frontend-Anwendungen senden.
+            Dateiverarbeitung: Zum Beispiel für Streaming-Dienste wie Netflix.
+            Zusammenfassung
+            Node.js ermöglicht die Ausführung von JavaScript auf Servern.
+            Es ist asynchron und non-blocking, was es effizient und schnell macht.
+            Die Event Loop sorgt dafür, dass viele Aufgaben gleichzeitig verwaltet werden können.
+            Mit Modulen und npm können Entwickler ihre Arbeit modularisieren und erweitern.
+            Möchtest du etwas davon genauer erklärt haben? 
+
+
+    ---------------------
+    <Vorteile>
+
+        Asynchronität und Ereignisgesteuert: 
+            Node.js arbeitet nicht blockierend, was bedeutet, dass es mehrere Anfragen parallel verarbeiten kann. 
+            Wenn eine Aufgabe wie z. B. der Zugriff auf eine Datenbank länger dauert, wird sie im Hintergrund weiter bearbeitet, 
+            während der Server bereits andere Anfragen beantwortet.
+
+        Großes Ökosystem (NPM): 
+            Node.js bietet Zugriff auf den Node Package Manager (NPM), der eine riesige Sammlung von Open-Source-Bibliotheken und -Modulen enthält, 
+            die die Entwicklung von Anwendungen beschleunigen und erleichtern.
+
+        Einheitliche Sprache (JavaScript): 
+            Entwickler können dieselbe Sprache, JavaScript, sowohl auf der Server- als auch auf der Clientseite verwenden, 
+            was die Entwicklung und Pflege von Webanwendungen vereinfacht.
+
+    <was ist eine Laufzeitumgebung>
+        stellt die grundlegenden Ressourcen und Funktionen bereit, die ein Programm benötigt, um zur Laufzeit zu funktionieren
+        Eine Laufzeitumgebung ist hauptsächlich für das Ausführen des Codes zuständig und bietet grundlegende Laufzeitdienste.
+
+        Eine Laufzeitumgebung (oder Runtime Environment) ist eine Software-Umgebung, die alles bereitstellt, 
+        was ein Programm benötigt, um während seiner Ausführung korrekt zu funktionieren. 
+        Sie enthält alle wichtigen Ressourcen, wie Speicherverwaltung, Hardwarezugriff, und Funktionen, die das Programm zum Laufen bringt. 
+        Ein Beispiel für eine Laufzeitumgebung ist Node.js für JavaScript.
+
+        Hauptaufgaben einer Laufzeitumgebung
+            >Bereitstellung grundlegender Funktionen und Bibliotheken z. B. für Dateizugriff, Netzwerkkommunikation oder mathematische Berechnungen.
+            >Speicherverwaltung und Garbage Collection: 
+            >Plattformunabhängigkeit
+                Eine Laufzeitumgebung schafft oft eine Abstraktionsschicht, durch die ein Programm 
+                unabhängig von der zugrunde liegenden Hardware und dem Betriebssystem laufen kann.
+            >Fehlerbehandlung und Sicherheitsfunktionen
+
+        Beispiele für Laufzeitumgebungen
+        Node.js: Eine Laufzeitumgebung, die die V8-JavaScript-Engine nutzt und JavaScript außerhalb des Browsers, z. B. auf einem Server, ausführbar macht.
+        
+        Nachteile von Laufzeitumgebungen
+            Leistungsaufwand: Die zusätzliche Abstraktionsschicht kann Ressourcenverbrauch erhöhen und Programme langsamer machen.
+            Abhängigkeit von der Umgebung: Programme sind auf die Verfügbarkeit und Version der Laufzeitumgebung angewiesen.
+
+
+clientseitiges Javascript VS Node
+    Unterschiede zwischen Node.js und JavaScript
+        Merkmal             JavaScript im Browser	                                Node.js
+        Umgebung	        Läuft im Webbrowser (z. B. Chrome, Firefox)	            Läuft auf dem Server oder Computer
+        Zweck	            Fokus auf Interaktivität und Manipulation               Fokus auf serverseitige Logik und Backends.
+                            von Webseiten (Frontend).	
+        APIs/Module	        Browser-spezifische APIs, z. B. DOM, fetch, window.	    Node.js-Module, z. B. fs, http, path.
+        I/O-Operationen	    Eingeschränkt                                           Volle Kontrolle über das Dateisystem, Netzwerk, etc.
+                            (Dateien können nicht direkt bearbeitet werden).	
+        Non-blocking I/O	Standardmäßig für DOM-Events und einige APIs asynchron.	Hauptmerkmal von Node.js, optimiert für asynchrone I/O.
+        Module-System	    Nutzt ES-Module (import/export).	                    Unterstützt CommonJS (require/module.exports) und ES-Module.
+        Globales Objekt	    window (im Browser), mit spezifiic Funct wie alert	    global, mit spezifischen Funktionen wie process, Buffer.
+        Event Loop	        Organisiert DOM-Events und Browser-APIs.	            Verwaltet serverseitige Ereignisse und I/O.
+        
+    Gemeinsamkeiten von Node.js und JavaScript
+        Sprache: JavaScript
+
+        Node.js verwendet JavaScript als Programmiersprache. Die Syntax und grundlegenden Konzepte (z. B. Variablen, Funktionen, Schleifen) sind identisch.
+        Ereignisgesteuertes Modell
+
+        Sowohl JavaScript im Browser als auch Node.js arbeiten ereignisgesteuert.
+        Beispiel: Ein Klick-Event im Browser oder eine eingehende Anfrage im Server wird durch einen Event-Handler bearbeitet.
+        Asynchronität und Callbacks
+
+        Beide unterstützen asynchrone Programmierung mit Callbacks, Promises und async/await.
+        V8-Engine
+
+        Beide laufen auf der V8-JavaScript-Engine von Google (JavaScript im Chrome-Browser, Node.js serverseitig).
+
+    Gemeinsamkeiten, die unterschiedlich genutzt werden
+        Asynchronität
+
+        Im Browser: Wird vor allem für Animationen, Event-Handling (z. B. Klicks) und Netzwerk-Anfragen (fetch) genutzt.
+        In Node.js: Wird für serverseitige Anfragen, Datenbank-Operationen und Dateizugriffe verwendet.
+        Ereignisgesteuert
+
+        Im Browser: Nutzt Ereignisse wie click, mouseover und keydown, die auf Benutzerinteraktionen reagieren.
+        In Node.js: Nutzt Ereignisse wie eingehende HTTP-Anfragen, abgeschlossene Dateizugriffe oder Timer.
+        Module und Pakete
+
+        Im Browser: Externe Module müssen meist über Tools wie Webpack oder Vite gebündelt werden.
+        In Node.js: npm (Node Package Manager) macht das Einbinden von Modulen direkt und einfach.
+        Zusammenfassung
+        Gemeinsamkeiten:
+        Beide nutzen dieselbe Sprache (JavaScript) und die V8-Engine.
+        Sie unterstützen asynchrone Programmierung und ein ereignisgesteuertes Modell.
+        Unterschiede:
+        Node.js ist serverseitig und bietet Zugriff auf das Dateisystem, Netzwerke und Serverfunktionen.
+        JavaScript im Browser ist auf die Manipulation von Webseiten und Interaktivität ausgelegt.
+        Hauptpunkt:
+        JavaScript ist die Sprache, während Node.js die Laufzeitumgebung ist, die diese Sprache auf Servern nutzbar macht.
+
+
+
+-----------
+Video https://youtu.be/8aGhZQkoFbQ?si=-5eAsJdKOQEc7ce8
+    problem with single thread:
+    blocking stack 
+
+    one thing at a Time
+    except not realyy
+
+Links
+    https://kinsta.com/knowledgebase/what-is-node-js/
+    https://cabulous.medium.com/how-v8-javascript-engine-works-5393832d80a7
+----------------------
