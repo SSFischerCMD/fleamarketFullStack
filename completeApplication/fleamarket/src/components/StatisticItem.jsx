@@ -1,4 +1,4 @@
-import UserIcon from "./UserIcon.js";
+import UserIcon from "../svg/UserIcon";
 
 function StatisticItem ({headline, statInfo}){
     return (

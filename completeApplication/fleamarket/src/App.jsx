@@ -1,11 +1,11 @@
 import { useState } from "react";
-import CartIcon from './components/CartIcon.js';
-import UserIcon from "./components/UserIcon.js";
-import StatisticItem from "./components/StatisticItem.js";
+import StatisticItem from "./components/StatisticItem.jsx";
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
-import CartPage from "./pages/CartPage.js";
+import CartPage from "./pages/CartPage.jsx";
+import UserIcon from "./svg/UserIcon.jsx";
+import CartIcon from "./svg/CartIcon.jsx";
 
 function App() {
   return (
