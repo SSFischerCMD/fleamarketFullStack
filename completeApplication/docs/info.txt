@@ -1,0 +1,4 @@
+8. Online-Flohmarkt (Online Flea Market): 
+• Anzeige von gebrauchten Gegenständen zum Verkauf. 
+• Suche nach Artikeln, Filterung nach Kategorien. 
+• Kommunikation zwischen Käufer und Verkäufer.
