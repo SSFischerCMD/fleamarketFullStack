@@ -117,6 +117,50 @@ main h1 .highlighted-text {
     width: 100px;
     height: 100px;
 }
+ 
+/* Overlay-Hintergrund */
+.cartContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* halbtransparentes Schwarz */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* ganz oben */
+}
+
+/* Pop-up-Fenster */
+.cartContainer-content {
+  background-color: #f0f0f0; /* hellgrau */
+  max-width: 600px;
+  max-height: 80vh;
+  width: 90%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  font-family: 'Segoe UI', sans-serif;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animation für sanftes Einblenden */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Optional: Scrollbar-Styling für Webkit-Browser */
+.cartContainer-content::-webkit-scrollbar {
+  width: 8px;
+}
+.cartContainer-content::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
 
 /* Responsive Anpassungen */
 @media (max-width: 768px) {
