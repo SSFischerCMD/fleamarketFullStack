@@ -4,6 +4,7 @@ import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CartPage from "./pages/CartPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
 import UserIcon from "./svg/UserIcon.jsx";
 import CartIcon from "./svg/CartIcon.jsx";
 
@@ -14,12 +15,14 @@ function App() {
         <header>
           <div className="logo">FleatMarket</div>
           <div className="menu">
-            <div className="menu-item">
-              <div className="menuItem-text">Sign In</div>
-              <div className="menuItem-icon">
-                <UserIcon></UserIcon>
-              </div>    
-            </div>
+            <Link to={"/Login"}>
+              <div className="menu-item">
+                <div className="menuItem-text">Sign In</div>
+                <div className="menuItem-icon">
+                  <UserIcon></UserIcon>
+                </div>    
+              </div>
+            </Link>
             <Link to={"/Cart"}>
               <div className="menu-item">
                 <div className="menuItem-text">Cart</div>
@@ -33,6 +36,7 @@ function App() {
         <main>
           <Routes>
               <Route path="/Cart" element={<CartPage/>}/>
+              <Route path="/Login" element={<LoginPage/>}/>
             </Routes>
           <h1><span className="highlighted-text">Discover Hidden Treasures</span></h1>
           <p className="subtitle">

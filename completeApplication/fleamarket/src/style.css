@@ -108,18 +108,9 @@ main h1 .highlighted-text {
     padding-right: 20px;
     border: 1px solid #ff00ff;
 }
-
-.cartContainer {
-        display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: #555;
-    width: 100px;
-    height: 100px;
-}
  
 /* Overlay-Hintergrund */
-.cartContainer {
+.popUp-container{
   position: fixed;
   top: 0;
   left: 0;
@@ -133,7 +124,7 @@ main h1 .highlighted-text {
 }
 
 /* Pop-up-Fenster */
-.cartContainer-content {
+.popUp-content {
   background-color: #f0f0f0; /* hellgrau */
   max-width: 600px;
   max-height: 80vh;
@@ -153,10 +144,10 @@ main h1 .highlighted-text {
 }
 
 /* Optional: Scrollbar-Styling für Webkit-Browser */
-.cartContainer-content::-webkit-scrollbar {
+.popUp-content::-webkit-scrollbar {
   width: 8px;
 }
-.cartContainer-content::-webkit-scrollbar-thumb {
+.popUp-content::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 4px;
 }

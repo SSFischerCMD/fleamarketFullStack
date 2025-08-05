@@ -4,7 +4,7 @@ import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function CartPage(){
+function LoginPage(){
   return(
     <>
       <div className="popUp-container">
@@ -12,8 +12,8 @@ function CartPage(){
           <Link to={"/"}>
             <ExitIcon ></ExitIcon>
           </Link>
-          <h1>CART IS OPENED</h1>
-          <div>hallo mein name ist zusanne</div>
+          <h1>Sign In</h1>
+          <div>username</div>
         </div>
           <Routes>
             <Route path="/" element={<App/>}/>
@@ -23,4 +23,4 @@ function CartPage(){
   );
 }
 
-export default CartPage
+export default LoginPage
