@@ -3,30 +3,22 @@
 • Suche nach Artikeln, Filterung nach Kategorien. 
 • Kommunikation zwischen Käufer und Verkäufer.
 
-SCHRITTE ZUR ERSTELLUNG EINES WIREFRAMES
- 1. Seiten auflisten: Welche Seiten wird deine Webapp haben (Startseite,…, etc.)?
- 2. Inhaltsbereiche identifizieren: Welche Bereiche (Header, Navigation, Hauptinhalt, Footer) gehören auf 
-jede Seite?
- 3. Elemente skizzieren: Welche Elemente brauchst du in jedem Bereich (Textfelder, Bilder, Buttons, etc.)?
- 4. Elemente standardisieren: Verwende einheitliche Größen und Stile für wiederkehrende Elemente.
- 5. Inhalte anordnen: Ordne die Inhaltsbereiche logisch an (z.B. Navigation oben, Hauptinhalt in der Mitte, 
-Footer unten).
- 6. Feedback einholen: Zeige dein Wireframe anderen und frage nach Feedback.
- 7. Überarbeiten: Nimm notwendige Änderungen basierend auf dem Feedback vor.
+
 
 🧩 Was ist React?
-React ist eine JavaScript-Bibliothek für die Entwicklung von Benutzeroberflächen (User Interfaces, UIs).
 
-Sie wurde von Facebook entwickelt und ist weit verbreitet in der modernen Webentwicklung.
-
-React ermöglicht die Erstellung von wiederverwendbaren UI-Komponenten, die modular und flexibel sind.
-
-Sie basiert auf dem Konzept des virtuellen DOM, was effizientere Aktualisierungen und bessere Performance erlaubt.
-
-Besonders geeignet für Single-Page-Applications (SPAs) und komplexe Web-UIs.
 
 
 29.07.2025 	- Wireframe auf Papier
+				1. Seiten auflisten: Welche Seiten wird deine Webapp haben (Startseite,…, etc.)?
+				2. Inhaltsbereiche identifizieren: Welche Bereiche (Header, Navigation, Hauptinhalt, Footer) gehören auf 
+				jede Seite?
+				3. Elemente skizzieren: Welche Elemente brauchst du in jedem Bereich (Textfelder, Bilder, Buttons, etc.)?
+				4. Elemente standardisieren: Verwende einheitliche Größen und Stile für wiederkehrende Elemente.
+				5. Inhalte anordnen: Ordne die Inhaltsbereiche logisch an (z.B. Navigation oben, Hauptinhalt in der Mitte, 
+				Footer unten).
+				6. Feedback einholen: Zeige dein Wireframe anderen und frage nach Feedback.
+				7. Überarbeiten: Nimm notwendige Änderungen basierend auf dem Feedback vor.
 04.08.2025 	- Wireframe in Figma 
 			- Entwicklung des Frontendes starten:
 				> EINRICHTUNG EINES REACT-PROJEKTS
@@ -41,8 +33,12 @@ Besonders geeignet für Single-Page-Applications (SPAs) und komplexe Web-UIs.
 
 						package.json: Listet die Abhängigkeiten und Skripte deines Projekts auf.
 				> Einarbeitung in React Konzepte: Komponenten, Routing
-					React ist das Framework, JSX ist eine bequeme Schreibweise, um mit React zu arbeiten:
-					-Einführung in JSX und Komponenten
+					- React ist eine JavaScript-Bibliothek für die Entwicklung von Benutzeroberflächen (User Interfaces, UIs).
+					- React ermöglicht die Erstellung von wiederverwendbaren UI-Komponenten, die modular und flexibel sind.
+					- Sie basiert auf dem Konzept des virtuellen DOM, was effizientere Aktualisierungen und bessere Performance erlaubt.
+					- Besonders geeignet für Single-Page-Applications (SPAs) und komplexe Web-UIs.
+					- React ist das Framework, JSX ist eine bequeme Schreibweise, um mit React zu arbeiten:
+					- Einführung in JSX und Komponenten
 						JSX: Eine Erweiterung von JavaScript, mit der man HTML-ähnlichen Code direkt im JavaScript schreiben kann.
 						Komponenten: Wiederverwendbare UI-Bausteine, die die Struktur der Anwendung modularisieren.
 						Funktionale Komponenten: JavaScript-Funktionen, die JSX zurückgeben.
@@ -55,35 +51,48 @@ Besonders geeignet für Single-Page-Applications (SPAs) und komplexe Web-UIs.
 						Props sind wie Informationen von außen, die die Komponente erhält.
 					-Verwaltung des Komponentenstates mit useState
 						useState-Hook: Ermöglicht die Verwendung von State in funktionalen Komponenten.
-
-						Gibt ein Array mit zwei Werten zurück:
-
-						Den aktuellen State-Wert.
-
-						Eine Funktion zur Aktualisierung des States.
-
-						State-Updates sind asynchron und führen zu einer neuen Render-Ausführung der Komponente.
+							Gibt ein Array mit zwei Werten zurück:
+							- Den aktuellen State-Wert.
+							- Eine Funktion zur Aktualisierung des States.
+							- State-Updates sind asynchron und führen zu einer neuen Render-Ausführung der Komponente.
 					- 📬 Übergabe von Daten mit Props
 						Props werden von einer Elternkomponente an eine Kindkomponente weitergereicht.
-
 						Sie funktionieren ähnlich wie Funktionsargumente.
-
 						Die Kindkomponente greift über das props-Objekt auf diese Daten zu.
-
 						Innerhalb der Kindkomponente sind Props unveränderlich (read-only) – sie können dort nicht direkt verändert werden.
 					- React Router ist eine Bibliothek für die Navigation in React-Anwendungen.
-
 						Sie ermöglicht, dass verschiedene URLs unterschiedliche Komponenten anzeigen – ohne die Seite neu zu laden.
-
 						Das Ergebnis ist eine Single-Page Application (SPA) mit dynamischer Navigation.
-
 						🔧 Wichtige Komponenten
-						BrowserRouter: Nutzt die History API des Browsers für sauberes Routing.
-
-						Routes: Definiert alle verfügbaren Routen.
-
-						Route: Verknüpft eine URL mit einer bestimmten Komponente.
-
-						Link / NavLink: Erzeugt klickbare Links, um zwischen Seiten zu wechseln.
+							BrowserRouter: Nutzt die History API des Browsers für sauberes Routing.
+							Routes: Definiert alle verfügbaren Routen.
+							Route: Verknüpft eine URL mit einer bestimmten Komponente.
+							Link / NavLink: Erzeugt klickbare Links, um zwischen Seiten zu wechseln.
 05.08.2025 - weiterentwicklung des frontends 
-		   - Einführung in Spring Boot und Datenbank
+		   - Einführung in Spring Boot
+				- Ein Framework zum Erstellen von eigenständigen, produktionsreifen  Anwendungen
+				- Vorteile:
+					> Schnelle und einfache Entwicklung
+					> Minimale Konfiguration
+					> Integrierter Server (keine separate Tomcat-Installation erforderlich)
+					> Produktionsreife Funktionen (Metriken, Health Checks etc.)
+					> Große und aktive Community
+
+				- Einrichtung eines Spring Boot Projekts: 
+					> Spring Initializr: Ein webbasierter Generator für Spring Boot-Projekt-Skelette
+				
+			- Einführung in Resful API's
+				- REST (Representational State Transfer) ist ein Architekturstil für verteilte Systeme.
+				- RESTful APIs sind Schnittstellen, die den Zugriff auf Ressourcen über das HTTP-Protokoll ermöglichen.
+				- HTTP-Methoden (GET, POST, PUT, DELETE) werden verwendet, um Operationen auf Ressourcen durchzuführen (lesen, erstellen, aktualisieren, löschen).
+				- Die Kommunikation erfolgt in der Regel über JSON (JavaScript Object Notation).
+				- Restulf APIs in Spring Boot: ERSTELLUNG VON CONTROLLERN UND MAPPING VON ENDPUNKTEN 
+					Controller: Eine Klasse in Spring Boot, die Anfragen entgegennimmt und verarbeitet.
+					Endpunkte: URLs, die mit bestimmten HTTP-Methoden und Ressourcen verknüpft sind.
+					Annotationen:
+					@RestController: Markiert eine Klasse als Controller.
+					@GetMapping, @PostMapping, @PutMapping, @DeleteMapping: Verknüpfen Methoden mit HTTP-Methoden und Endpunkten.
+					@PathVariable: Extrahiert Werte aus der URL.
+					@RequestBody: Extrahiert Daten aus dem Anfragekörper (meistens JSON).
+				ERSTELLUNG VON CONTROLLERN UND MAPPING VON ENDPUNKTEN – 2
+
