@@ -5,23 +5,49 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.RequiredArgsConstructor;
 import models.Product;
 import services.ProductService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/Demo")
-@RequiredArgsConstructor
 public class DemoController {
 
     private final ProductService productService;
+    
+    public DemoController (ProductService productService){
+        this.productService = productService;
+    }
 
+    @GetMapping("/products")
+    public ResponseEntity<List<Product>> getProducts() {
+        List<Product> products = productService.getAllProducts();
+        return ResponseEntity.ok(products); 
+    } 
+
+}
+
+/*
+    Lombok ist eine Java-Bibliothek, die automatisch Dinge wie Getter, Setter, Konstruktoren usw. generiert.
+    Ohne Lombok müsste man einen Konstruktor, der als einmaliger "setter" für die final variable gilt, schreiben:
+    ( final bedeutet: Das Feld darf nur einmal gesetzt werden – im Konstruktor.)
+
+        public DemoController(ProductService productService) {
+            this.productService = productService;
+        }
+    ---------------------------------------------------------
+    Wie lange lebt dieses Objekt?
+        Spring Boot verwaltet die Lebensdauer über sogenannte Beans. Standardmäßig ist jede Bean ein Singleton:
+
+        Das bedeutet: Es gibt genau ein Objekt pro Klasse im gesamten Programm.
+        Dieses Objekt wird beim Start der Anwendung erstellt.
+        Es bleibt so lange bestehen, bis die Anwendung beendet wird.
+        ➡️ Dein ProductService-Objekt wird also einmal erstellt und von allen Controllern oder Services verwendet, die es brauchen.
+
+    ---------------------------------------------------------
     @GetMapping("/")
     public ResponseEntity<Void> check (){
         return ResponseEntity.ok().build();
@@ -36,11 +62,4 @@ public class DemoController {
     public ResponseEntity<String> submit(@RequestBody String data) {
         return ResponseEntity.ok(data + "Empfangen: ");
     }
-
-    @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts() {
-        List<Product> products = productService.getAllProducts();
-        return ResponseEntity.ok(products); 
-    } 
-
-}
+*/

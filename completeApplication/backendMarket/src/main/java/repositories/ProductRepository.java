@@ -18,9 +18,5 @@ public interface ProductRepository extends MongoRepository<Product, String> {
     // Beispiel: Nur verfügbare Produkte
     List<Product> findByAvailableTrue();
 
-    // Beispiel: Nur verfügbare Produkte
-    @Override
-    List<Product> findAll();
-
 }
 
