@@ -7,6 +7,7 @@ import CartPage from "./pages/CartPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import UserIcon from "./svg/UserIcon.jsx";
 import CartIcon from "./svg/CartIcon.jsx";
+import ProductList from "./components/ProductList.jsx";
 
 function App() {
   return (
@@ -56,6 +57,9 @@ function App() {
               <StatisticItem headline={"Items"} statInfo={"50k+ Items listed"}></StatisticItem>
               <StatisticItem headline={"Rating"} statInfo={"1000+ Average Rating"}></StatisticItem>
               <StatisticItem headline={"head"} statInfo={"1000+ Active Sellers"}></StatisticItem>
+          </div>
+          <div>
+            <ProductList/>
           </div>
         </main>
       </body>
