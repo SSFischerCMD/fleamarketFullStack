@@ -69,7 +69,7 @@
 							Route: Verknüpft eine URL mit einer bestimmten Komponente.
 							Link / NavLink: Erzeugt klickbare Links, um zwischen Seiten zu wechseln.
 05.08.2025 - weiterentwicklung des frontends 
-		   - Einführung in Spring Boot
+		   - Einführung in Spring Boot (+ initial setip und creating a democontroller)
 				- Ein Framework zum Erstellen von eigenständigen, produktionsreifen  Anwendungen
 				- Vorteile:
 					> Schnelle und einfache Entwicklung
@@ -86,13 +86,69 @@
 				- RESTful APIs sind Schnittstellen, die den Zugriff auf Ressourcen über das HTTP-Protokoll ermöglichen.
 				- HTTP-Methoden (GET, POST, PUT, DELETE) werden verwendet, um Operationen auf Ressourcen durchzuführen (lesen, erstellen, aktualisieren, löschen).
 				- Die Kommunikation erfolgt in der Regel über JSON (JavaScript Object Notation).
-				- Restulf APIs in Spring Boot: ERSTELLUNG VON CONTROLLERN UND MAPPING VON ENDPUNKTEN 
-					Controller: Eine Klasse in Spring Boot, die Anfragen entgegennimmt und verarbeitet.
-					Endpunkte: URLs, die mit bestimmten HTTP-Methoden und Ressourcen verknüpft sind.
-					Annotationen:
+			- Restulf APIs in Spring Boot: ERSTELLUNG VON CONTROLLERN UND MAPPING VON ENDPUNKTEN 
+				- Controller: Eine Klasse in Spring Boot, die Anfragen entgegennimmt und verarbeitet.
+				- Endpunkte: URLs, die mit bestimmten HTTP-Methoden und Ressourcen verknüpft sind.
+				- Annotationen:
 					@RestController: Markiert eine Klasse als Controller.
 					@GetMapping, @PostMapping, @PutMapping, @DeleteMapping: Verknüpfen Methoden mit HTTP-Methoden und Endpunkten.
 					@PathVariable: Extrahiert Werte aus der URL.
 					@RequestBody: Extrahiert Daten aus dem Anfragekörper (meistens JSON).
-				ERSTELLUNG VON CONTROLLERN UND MAPPING VON ENDPUNKTEN – 2
+				- Umgang mit HTTP-Anfragen und Antworten
+					📤 Anfragen (Requests) Enthalten 
+						die HTTP-Methode (GET, POST, etc.), 
+						die URL 
+						optional: Daten im Anfragekörper.
+								  Header, die zusätzliche Informationen liefern (z. B. Authentifizierungstoken).
 
+					📥 Antworten (Responses) Enthalten 
+						einen HTTP-Statuscode (z. B. 200 OK, 404 Not Found), 
+						Header 
+						optional: Daten im Antwortkörper (meistens JSON).
+
+					🧰 Spring Boot
+						Verwendet Objekte wie HttpServletRequest und HttpServletResponse, um auf Anfragen und Antworten zuzugreifen.
+						Bietet Annotationen wie @ResponseStatus, um den Statuscode einer Antwort festzulegen.
+09.08.2025	anbindung an MongoDB
+			- Einarbeitung Datenbanken
+				ÜBERBLICK ÜBER NoSQL-DATENBANKEN
+				- Nicht-relationale Datenbanken, die Daten nicht in Tabellen, sondern in flexibleren Strukturen speichern (z.B. Dokumente, Key-Value-Paare, Graphen).
+				- Vorteile von NoSQL:
+					- Flexibilität: Anpassung an sich ändernde Datenstrukturen.
+					- Skalierbarkeit: Einfache Verteilung auf mehrere Server.
+					- Performance: Schnelle Lese- und Schreibvorgänge.
+				- Nachteile von NoSQL:
+					- Keine ACID-Transaktionen (wie in relationalen Datenbanken).
+					- Komplexere Abfragen können schwieriger sein.
+
+				MongoDB – DIE DOKUMENTENORIENTIERTE DATENBANK
+				- Eine beliebte NoSQL-Datenbank, die Daten in BSON-Dokumenten (ähnlich wie JSON) speichert.
+				- Dokumente können verschachtelte Strukturen und Arrays enthalten.
+				- Flexibles Schema: Dokumente in derselben Collection können unterschiedliche Felder haben.
+				- Leistungsstarke Abfragesprache: Ermöglicht komplexe Suchen und Filter.
+				- Einrichtung:
+					- Installation:
+					- MongoDB kann von der offiziellen Website heruntergeladen und installiert werden: https://www.mongodb.com/
+					- MongoDB Compass: Eine grafische Benutzeroberfläche (GUI) zum Verwalten und Durchsuchen deiner MongoDB-Datenbank.
+					
+			INTEGRATION VON MongoDB in SPRING BOOT
+				- Spring Data MongoDB: Ein Modul, das die Integration von MongoDB in Spring Boot-Anwendungen vereinfacht.
+					Vorteile:
+						- Reduziert Boilerplate-Code.
+						- Bietet eine einfache und typische Schnittstelle zur Datenbank.
+						- Unterstützt CRUD-Operationen und komplexe Abfragen.
+					Konfiguration:
+						Hinzufügen der Spring Data MongoDB-Abhängigkeit zur pom.xml 
+						Konfigurieren der Verbindung zur MongoDB-Datenbank in der application.properties-Datei.
+				REPOSITORIES – DER ZUGANG ZU DEINEN DATEN
+					Repositories sind Schnittstellen, die den Zugriff auf Daten in der Datenbank ermöglichen.
+					Sie erweitern das CrudRepository-Interface von Spring Data.
+					Spring Data erstellt automatische Implementierungen für grundlegende CRUD-Operationen (Create, Read, Update, Delete).
+						Create: save(entity) – Speichert ein neues oder aktualisiert ein bestehendes Objekt in der Datenbank.
+						Read: findById(id), findAll() – Liest ein Objekt anhand seiner ID oder alle Objekte aus der Datenbank.
+						Update: save(entity) – Aktualisiert ein bestehendes Objekt in der Datenbank.
+						Delete: deleteById(id) – Löscht ein Objekt anhand seiner ID aus der Datenbank.
+					Du kannst eigene Methoden für benutzerdefinierte Abfragen hinzufügen.
+			
+
+			

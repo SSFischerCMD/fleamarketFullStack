@@ -28,10 +28,5 @@ public class Product {
 
     // Getter & Setter
 
-    public static class Seller {
-        private String name;
-        private String userId;
 
-        // Getter & Setter
-    }
 }

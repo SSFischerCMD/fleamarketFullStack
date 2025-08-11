@@ -3,6 +3,7 @@ package com.example.demo;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import models.Product;
 import services.ProductService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/Demo")
 @RequiredArgsConstructor
@@ -36,8 +38,9 @@ public class DemoController {
     }
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts(){
+    public ResponseEntity<List<Product>> getProducts() {
         List<Product> products = productService.getAllProducts();
-        return ResponseEntity.ok().build();
-    }
+        return ResponseEntity.ok(products); 
+    } 
+
 }
