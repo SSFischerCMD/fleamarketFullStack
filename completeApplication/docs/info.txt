@@ -150,5 +150,29 @@
 						Delete: deleteById(id) – Löscht ein Objekt anhand seiner ID aus der Datenbank.
 					Du kannst eigene Methoden für benutzerdefinierte Abfragen hinzufügen.
 			
+Was bedeutet „Nebenwirkung“ in diesem Kontext?
+	- In der funktionalen Programmierung (worauf React teilweise basiert) ist eine „Nebenwirkung“ (engl. side effect) 
+	  jede Aktion, die außerhalb der Funktion selbst etwas verändert oder mit der Außenwelt interagiert.
+	- Beispiele 
+		Daten von einer API laden (fetch)
+		In die Konsole schreiben (console.log)
+		DOM direkt manipulieren
+		Timer setzen (setTimeout, setInterval)
+		Lokalen Speicher lesen/schreiben (localStorage)
+		Event Listener registrieren
+		Zustand außerhalb der Funktion verändern
 
-			
+	- useEffect wird verwendet, um Nebenwirkungen auszuführen :
+		useEffect(() => {
+			// Effekt-Code
+				return () => {
+				// Optional: Cleanup-Code //Wird vor dem nächsten Effekt oder beim Unmount der Komponente ausgeführt.
+							 Wichtig bei z. B. Timern oder Event Listenern, um Speicherlecks zu vermeiden.
+				};
+		}, [abhängigkeiten]); 
+
+		abhängikeiten Steuert, wann der Effekt erneut ausgeführt wird.
+			Wenn leer ([]): Effekt wird nur einmal nach dem ersten Render ausgeführt.
+			Wenn Werte enthalten sind: Effekt wird jedes Mal ausgeführt, wenn sich einer dieser Werte ändert.
+
+
