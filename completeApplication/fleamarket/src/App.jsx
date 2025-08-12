@@ -8,7 +8,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import UserIcon from "./svg/UserIcon.jsx";
 import CartIcon from "./svg/CartIcon.jsx";
 import ProductList from "./components/ProductList.jsx";
-
+import MagnifyingGlass from "./svg/MagnifyingGlass.jsx";
 function App() {
   return (
     <>
@@ -43,29 +43,30 @@ function App() {
           <p className="subtitle">
               Your online flea market where every item has a story. Find unique vintage pieces, antiques, and collectibles from sellers around the world.
           </p>
-
           <div className="search-bar-container">
+            <div className="inputWindow">
+              <MagnifyingGlass></MagnifyingGlass>
               <input type="text" placeholder="What treasure are you looking for?"></input>
-              <div>
-                <div className="search-bar-filter">
-                  <Link to={"/filters"}>
-                    advanced filters
-                  </Link>
-                </div>
-                <button>Search Treasures</button>
+            </div>
+            <div>
+              <div className="search-bar-filter">
+                <Link to={"/filters"}>
+                  advanced filters
+                </Link>
               </div>
-              
+              <button>Search Treasures</button>
+            </div>  
           </div>
-
+          <div className="productView">
+            <ProductList/>
+          </div>
           <div className="stats">
               <StatisticItem headline={"Sellers"} statInfo={"1000+ Active Sellers"}></StatisticItem>
               <StatisticItem headline={"Items"} statInfo={"50k+ Items listed"}></StatisticItem>
               <StatisticItem headline={"Rating"} statInfo={"1000+ Average Rating"}></StatisticItem>
               <StatisticItem headline={"head"} statInfo={"1000+ Active Sellers"}></StatisticItem>
           </div>
-          <div>
-            <ProductList/>
-          </div>
+          
         </main>
       </div>
     </>

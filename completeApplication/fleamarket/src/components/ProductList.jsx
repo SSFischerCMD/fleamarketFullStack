@@ -24,10 +24,10 @@ function ProductList() {
       ) : (
         products.map(product => (
           <div key={product.id} className="product-item">
-            <h3>{product.name}</h3>
             <img src={product.images[0]} alt={product.name} />
+            <h3>{product.title}</h3>
             <p>{product.description}</p>
-            <p>Preis: {product.price} €</p>
+            <p><b>{product.price} €</b></p>
           </div>
         ))
       )}
