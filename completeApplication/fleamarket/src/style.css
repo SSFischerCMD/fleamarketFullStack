@@ -1,9 +1,14 @@
 /* Grundlayout */
-body {
-    font-family: Arial, sans-serif;
+.myApp {
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background-color: #f0f0f0;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* Header */
@@ -69,8 +74,21 @@ main h1 .highlighted-text {
 
 /* Suchleiste */
 .search-bar-container {
+    background-color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
     gap: 10px;
     margin-bottom: 40px;
+    width: 70%;
+    min-width: 400px;
+    margin: 0 auto
+
+}
+
+.search-bar-filter {
+    margin-top: 20px;
+    font-size: 13px;
+    text-decoration-line: none;
 }
 
 .search-bar-container input[type="text"] {
@@ -82,7 +100,7 @@ main h1 .highlighted-text {
 }
 
 .search-bar-container button {
-    margin-top: 40px;
+    margin-top: 20px;
     padding: 12px 25px;
     border: none;
     border-radius: 25px;
@@ -133,7 +151,6 @@ main h1 .highlighted-text {
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
-  font-family: 'Segoe UI', sans-serif;
   animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -154,17 +171,21 @@ main h1 .highlighted-text {
 
 
 /* Responsive Anpassungen */
-@media (max-width: 768px) {
-    main h1 {
-        font-size: 28px;
-    }
+@media (max-width: 500px) {
+    /* main h1 {
+        font-size: 28px; 
+        margin-bottom: 25px;
+    } */
 
-    .search-bar-container input[type="text"] {
+    /* .search-bar-container input[type="text"] {
         width: 80%;
+    } */
+    .search-bar-container {
+        width: 100%;
     }
-    
     .stats {
         flex-direction: column;
         align-items: center;
     }
 }
+

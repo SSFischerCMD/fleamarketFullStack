@@ -15,9 +15,6 @@ function CartPage(){
           <h1>CART IS OPENED</h1>
           <div>hallo mein name ist zusanne</div>
         </div>
-          <Routes>
-            <Route path="/" element={<App/>}/>
-          </Routes>
       </div>
     </>
   );

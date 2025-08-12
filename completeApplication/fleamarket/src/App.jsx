@@ -12,7 +12,7 @@ import ProductList from "./components/ProductList.jsx";
 function App() {
   return (
     <>
-      <body>  
+      <div className="myApp">  
         <header>
           <div className="logo">FleatMarket</div>
           <div className="menu">
@@ -47,6 +47,11 @@ function App() {
           <div className="search-bar-container">
               <input type="text" placeholder="What treasure are you looking for?"></input>
               <div>
+                <div className="search-bar-filter">
+                  <Link to={"/filters"}>
+                    advanced filters
+                  </Link>
+                </div>
                 <button>Search Treasures</button>
               </div>
               
@@ -62,7 +67,7 @@ function App() {
             <ProductList/>
           </div>
         </main>
-      </body>
+      </div>
     </>
   );
 }

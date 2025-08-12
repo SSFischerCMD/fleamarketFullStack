@@ -15,9 +15,6 @@ function LoginPage(){
           <h1>Sign In</h1>
           <div>username</div>
         </div>
-          <Routes>
-            <Route path="/" element={<App/>}/>
-          </Routes>
       </div>
     </>
   );
