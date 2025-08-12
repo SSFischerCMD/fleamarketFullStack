@@ -86,11 +86,13 @@ main h1 .highlighted-text {
     margin: 0 auto
 
 }
-
 .search-bar-filter {
     margin-top: 20px;
     font-size: 13px;
     text-decoration-line: none;
+}
+.filterContainer{
+
 }
 .inputWindow {
     margin: 0 auto;
@@ -114,7 +116,7 @@ input {
     padding: 10px;
     font-size: 18px;
 }
-.search-bar-container button {
+.searchBTN {
     margin-top: 20px;
     padding: 12px 25px;
     border: none;
