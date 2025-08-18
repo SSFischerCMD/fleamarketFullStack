@@ -1,25 +1,35 @@
 import { useState } from "react";
 import MagnifyingGlass from "../svg/MagnifyingGlass.jsx";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function SearchItem(){
-        const [searchTerm, setsearchTerm] = useState([]);
-    
+            const navigate = useNavigate();
+            const handleClick = () => {
+            navigate(`/products/${searchTerm}`);
+    };
+
+
+        const [searchTerm, setsearchTerm] = useState("");
         const handleChange = (event) => {
             setsearchTerm(event.target.value);
         };
+
+        function handleKeyDown(event){
+        if (event.key === 'Enter') {
+            navigate(`/products/${searchTerm}`);
+        }
+        };
+
 
     
     return (
         <>
         <div className="inputWindow">
             <MagnifyingGlass></MagnifyingGlass>
-            <input value={searchTerm} onChange={handleChange} type="text" placeholder="What treasure are you looking for?"></input>
+            <input value={searchTerm} onKeyDown={handleKeyDown} onChange={handleChange} type="text" placeholder="What treasure are you looking for?"></input>
         </div>
-                    <button className="searchBTN" >
-                <Link to={`/products/${searchTerm}`}>
-                     Search Treasures
-                </Link>
+            <button onClick={handleClick} className="searchBTN" >         
+                     Search Treasures            
             </button>
         </>
     )

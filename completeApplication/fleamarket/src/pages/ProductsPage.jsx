@@ -8,6 +8,8 @@ function ProductPage() {
   return (
     <>
       <ProductList searchTerm={searchTerm} />
+      <p>----------------------------------</p>
+       <ProductList searchTerm={""} />
     </>
   );
 }

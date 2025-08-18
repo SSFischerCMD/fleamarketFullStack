@@ -12,15 +12,19 @@ import ProductList from "../components/ProductList.jsx";
 import MagnifyingGlass from "../svg/MagnifyingGlass.jsx";
 import { useNavigate } from "react-router-dom";
 import SearchItem from "../components/SearchItem.jsx";
+import { useLocation } from 'react-router-dom';
+
 
 import { Outlet } from 'react-router-dom';
 
 
 function FrameWork() {
 
+    const location = useLocation();
+    const isHomePage = location.pathname === '/home' || location.pathname === '/home/';
+
+
     const [inputValue, setInputValue] = useState([]);
-
-
     const handleChange = (event) => {
         setInputValue(event.target.value);
     };
@@ -29,24 +33,27 @@ function FrameWork() {
   return (
     <>
     <header>
-        <div className="logo">FleatMarket</div>
+        <Link to={"/home"}>
+            <div className="logo">FleatMarket</div>  
+        </Link>   
+        {!isHomePage && <SearchItem id="headerSearchItem" />}
         <div className="menu">
-        <Link to={"/login"}>
-            <div className="menu-item">
-            <div className="menuItem-text">Sign In</div>
-            <div className="menuItem-icon">
-                <UserIcon></UserIcon>
-            </div>    
-            </div>
-        </Link>
-        <Link to={"/cart"}>
-            <div className="menu-item">
-            <div className="menuItem-text">Cart</div>
-            <div className="menuItem-icon">
-                <CartIcon></CartIcon>
-            </div>    
-            </div>
-        </Link>
+            <Link to={"/login"}>
+                <div className="menu-item">
+                <div className="menuItem-text">Sign In</div>
+                <div className="menuItem-icon">
+                    <UserIcon></UserIcon>
+                </div>    
+                </div>
+            </Link>
+            <Link to={"/cart"}>
+                <div className="menu-item">
+                <div className="menuItem-text">Cart</div>
+                <div className="menuItem-icon">
+                    <CartIcon></CartIcon>
+                </div>    
+                </div>
+            </Link>
         </div>
     </header>
     <main>
