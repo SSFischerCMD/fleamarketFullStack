@@ -1,26 +1,26 @@
+import React, { useEffect, useState } from "react";
 
-import React, { useEffect, useState } from "react"; //kann man react weglassen 
-
-function ProductList() {
-
-  const searchTerm = "";
-   const [products, setProducts] = useState([]);
-
-  fetch(`http://localhost:8080/Demo/products?search=${encodeURIComponent(searchTerm)}`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data); // Hier kannst du z. B. setFilteredProducts(data) aufrufen
-      setProducts(data);
-    })
-    .catch(error => {
-      console.error("Fehler beim Abrufen der Produkte:", error);
-    });
-
+function ProductList({ searchTerm }) {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:8080/Demo/products?search=${encodeURIComponent(searchTerm)}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setProducts(data);
+      })
+      .catch(error => {
+        console.error("Fehler beim Abrufen der Produkte:", error);
+      });
+  }, [searchTerm]); // <- wichtig: nur neu laden, wenn sich searchTerm ändert
 
   return (
     <div className="product-list">
+      
+<p>Aktueller Suchbegriff: {searchTerm}</p>
+
       {products.length === 0 ? (
-        <p>Keine Produkte gefunden.</p>
+        <p>Keine Produkte gefunden. {searchTerm}</p>
       ) : (
         products.map(product => (
           <div key={product.id} className="product-item">
@@ -36,6 +36,7 @@ function ProductList() {
 }
 
 export default ProductList;
+
 
 /* 
 Der Befehl .then() ist ein zentraler Bestandteil der Promise-Programmierung in JavaScript. 
@@ -60,4 +61,28 @@ useEffect(() => {
 
   fetchData();
 }, []);
+
+
+
+import { useState } from "react";
+
+function MyComponent() {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    console.log("Eingegebener Text:", inputValue);
+  };
+
+  return (
+    <div>
+      <input type="text" value={inputValue} onChange={handleChange} />
+      <button onClick={handleSubmit}>Absenden</button>
+    </div>
+  );
+}
+
 */

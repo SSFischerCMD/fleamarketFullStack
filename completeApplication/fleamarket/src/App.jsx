@@ -13,18 +13,25 @@ import MagnifyingGlass from "./svg/MagnifyingGlass.jsx";
 import { useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
 import NoFilterPage from "./pages/NoFilterPage.jsx";
+import ProductPage from "./pages/ProductsPage.jsx";
+import FrameWork from "./pages/FrameWork.jsx";
 function App() {
   return (
     <>
       <div className="myApp">  
           <Routes>      
-              <Route path="/" element={<HomePage />}>
-                <Route index element={<NoFilterPage />} />
-                <Route path="/filters" element={<FilterPage/>} />
-                <Route path="/Cart" element={<CartPage/>}/>
-                <Route path="/Login" element={<LoginPage/>}/>
+              <Route path="/*" element={<FrameWork/>}>
+                <Route path="Cart" element={<CartPage/>}/>
+                <Route path="Login" element={<LoginPage/>}/>
+                <Route path="home" element={<HomePage />}>
+                  <Route index element={<NoFilterPage />} />
+                  <Route path="filters" element={<FilterPage />} />
+                </Route>
+                <Route path="products" element={<ProductPage/>}/>
+                <Route path="products/:searchTerm" element={<ProductPage />} />
+
               </Route>
-            </Routes>       
+          </Routes>       
       </div>
     </>
   );

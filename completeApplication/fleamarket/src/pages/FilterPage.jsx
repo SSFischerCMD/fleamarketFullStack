@@ -5,7 +5,7 @@ function FilterPage(){
     
     const navigate = useNavigate();
     const handleClick = () => {
-        navigate('/');
+        navigate('/home');
     };
 
     return(

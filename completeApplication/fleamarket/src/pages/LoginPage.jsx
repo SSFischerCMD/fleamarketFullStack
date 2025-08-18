@@ -7,13 +7,9 @@ import { Link } from "react-router-dom";
 function LoginPage(){
   return(
     <>
-      <div className="search-bar-filter">
-        <button>advanced filters</button>;
-      </div>
-
       <div className="popUp-container">
         <div className="popUp-content">
-          <Link to={"/"}>
+          <Link to={"/home"}>
             <ExitIcon ></ExitIcon>
           </Link>
           <h1>Sign In</h1>

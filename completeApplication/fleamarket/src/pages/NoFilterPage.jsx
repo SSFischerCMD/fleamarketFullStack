@@ -5,7 +5,7 @@ function NoFilterPage(){
     
     const navigate = useNavigate();
     const handleClick = () => {
-        navigate('/filters');
+        navigate('filters');
     };
 
     return(

@@ -17,30 +17,15 @@ import { Outlet } from 'react-router-dom';
 
 function HomePage() {
 
+    const [searchTerm, setsearchTerm] = useState([]);
+
+    const handleChange = (event) => {
+        setsearchTerm(event.target.value);
+    };
+
+
   return (
     <>
-    <header>
-        <div className="logo">FleatMarket</div>
-        <div className="menu">
-        <Link to={"/Login"}>
-            <div className="menu-item">
-            <div className="menuItem-text">Sign In</div>
-            <div className="menuItem-icon">
-                <UserIcon></UserIcon>
-            </div>    
-            </div>
-        </Link>
-        <Link to={"/Cart"}>
-            <div className="menu-item">
-            <div className="menuItem-text">Cart</div>
-            <div className="menuItem-icon">
-                <CartIcon></CartIcon>
-            </div>    
-            </div>
-        </Link>
-        </div>
-    </header>
-    <main>
         <h1><span className="highlighted-text">Discover Hidden Treasures</span></h1>
         <p className="subtitle">
             Your online flea market where every item has a story. Find unique vintage pieces, antiques, and collectibles from sellers around the world.
@@ -48,15 +33,18 @@ function HomePage() {
         <div className="search-bar-container">
         <div className="inputWindow">
             <MagnifyingGlass></MagnifyingGlass>
-            <input type="text" placeholder="What treasure are you looking for?"></input>
+            <input value={searchTerm} onChange={handleChange} type="text" placeholder="What treasure are you looking for?"></input>
         </div>
         <div>
             <Outlet /> {}
-            <button className="searchBTN">Search Treasures</button>
+            <button className="searchBTN" >
+                <Link to={`/products/${searchTerm}`}>
+                     Search Treasures
+                </Link>
+            </button>
         </div> 
         </div>
         <div className="productView">
-        <ProductList/>
         </div>
         <div className="stats">
             <StatisticItem headline={"Sellers"} statInfo={"1000+ Active Sellers"}></StatisticItem>
@@ -64,7 +52,6 @@ function HomePage() {
             <StatisticItem headline={"Rating"} statInfo={"1000+ Average Rating"}></StatisticItem>
             <StatisticItem headline={"head"} statInfo={"1000+ Active Sellers"}></StatisticItem>
         </div>     
-    </main>
     </>
   );
 }
