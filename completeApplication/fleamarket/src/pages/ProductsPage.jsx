@@ -7,8 +7,6 @@ function ProductPage() {
 
   return (
     <>
-      <p>SUCHE: {searchTerm}</p>
-
       <ProductList searchTerm={searchTerm} />
     </>
   );

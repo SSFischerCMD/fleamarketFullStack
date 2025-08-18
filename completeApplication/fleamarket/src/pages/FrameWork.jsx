@@ -11,6 +11,7 @@ import CartIcon from "../svg/CartIcon.jsx";
 import ProductList from "../components/ProductList.jsx";
 import MagnifyingGlass from "../svg/MagnifyingGlass.jsx";
 import { useNavigate } from "react-router-dom";
+import SearchItem from "../components/SearchItem.jsx";
 
 import { Outlet } from 'react-router-dom';
 

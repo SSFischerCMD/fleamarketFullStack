@@ -12,7 +12,7 @@ function ProductList({ searchTerm }) {
       .catch(error => {
         console.error("Fehler beim Abrufen der Produkte:", error);
       });
-  }, [searchTerm]); // <- wichtig: nur neu laden, wenn sich searchTerm ändert
+  }, [searchTerm]); // <- nur neu laden, wenn sich searchTerm ändert
 
   return (
     <div className="product-list">

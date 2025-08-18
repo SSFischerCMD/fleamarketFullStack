@@ -9,20 +9,10 @@ import FilterPage from "./FilterPage.jsx";
 import UserIcon from "../svg/UserIcon.jsx";
 import CartIcon from "../svg/CartIcon.jsx";
 import ProductList from "../components/ProductList.jsx";
-import MagnifyingGlass from "../svg/MagnifyingGlass.jsx";
 import { useNavigate } from "react-router-dom";
-
 import { Outlet } from 'react-router-dom';
-
-
+import SearchItem from "../components/SearchItem.jsx";
 function HomePage() {
-
-    const [searchTerm, setsearchTerm] = useState([]);
-
-    const handleChange = (event) => {
-        setsearchTerm(event.target.value);
-    };
-
 
   return (
     <>
@@ -31,17 +21,9 @@ function HomePage() {
             Your online flea market where every item has a story. Find unique vintage pieces, antiques, and collectibles from sellers around the world.
         </p>
         <div className="search-bar-container">
-        <div className="inputWindow">
-            <MagnifyingGlass></MagnifyingGlass>
-            <input value={searchTerm} onChange={handleChange} type="text" placeholder="What treasure are you looking for?"></input>
-        </div>
+            <SearchItem></SearchItem>
         <div>
             <Outlet /> {}
-            <button className="searchBTN" >
-                <Link to={`/products/${searchTerm}`}>
-                     Search Treasures
-                </Link>
-            </button>
         </div> 
         </div>
         <div className="productView">
@@ -51,7 +33,7 @@ function HomePage() {
             <StatisticItem headline={"Items"} statInfo={"50k+ Items listed"}></StatisticItem>
             <StatisticItem headline={"Rating"} statInfo={"1000+ Average Rating"}></StatisticItem>
             <StatisticItem headline={"head"} statInfo={"1000+ Active Sellers"}></StatisticItem>
-        </div>     
+        </div>  
     </>
   );
 }
