@@ -2,10 +2,10 @@ package com.example.demo;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import models.Product;
@@ -22,13 +22,22 @@ public class DemoController {
         this.productService = productService;
     }
 
+    // @GetMapping("/products")
+    // public ResponseEntity<List<Product>> getProducts() {
+    //     List<Product> products = productService.getAllProducts();
+    //     return ResponseEntity.ok(products); 
+    // } 
+   
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts() {
-        List<Product> products = productService.getAllProducts();
-        return ResponseEntity.ok(products); 
-    } 
+    public List<Product> searchProducts(@RequestParam(required = false) String search) {
+        if (search == null || search.isBlank()) {
+            return productService.getAllProducts(); 
+        }
+        return productService.search(search);
+    }
 
 }
+
 
 /*
     Lombok ist eine Java-Bibliothek, die automatisch Dinge wie Getter, Setter, Konstruktoren usw. generiert.

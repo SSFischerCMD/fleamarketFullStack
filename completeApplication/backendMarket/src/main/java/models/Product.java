@@ -27,6 +27,6 @@ public class Product {
     private boolean available;
 
     // Getter & Setter
-
+    
 
 }

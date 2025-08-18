@@ -20,6 +20,9 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
+    public List<Product> search(String searchTerm){
+        return productRepository.findByTitleContainingIgnoreCaseOrCategoryContainingIgnoreCaseOrDescriptionContainingIgnoreCase(searchTerm, searchTerm, searchTerm);
+    }
 
     public Optional<Product> getProductById(String id) {
         return productRepository.findById(id);

@@ -18,5 +18,8 @@ public interface ProductRepository extends MongoRepository<Product, String> {
     // Beispiel: Nur verfügbare Produkte
     List<Product> findByAvailableTrue();
 
+    List<Product> findByTitleContainingIgnoreCaseOrCategoryContainingIgnoreCaseOrDescriptionContainingIgnoreCase(
+        String name, String category, String description
+    );
 }
 
