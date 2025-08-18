@@ -21,9 +21,9 @@ function App() {
               <Route path="/" element={<HomePage />}>
                 <Route index element={<NoFilterPage />} />
                 <Route path="/filters" element={<FilterPage/>} />
+                <Route path="/Cart" element={<CartPage/>}/>
+                <Route path="/Login" element={<LoginPage/>}/>
               </Route>
-              <Route path="/Cart" element={<CartPage/>}/>
-              <Route path="/Login" element={<LoginPage/>}/>
             </Routes>       
       </div>
     </>

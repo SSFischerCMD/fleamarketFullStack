@@ -2,20 +2,20 @@
 import React, { useEffect, useState } from "react"; //kann man react weglassen 
 
 function ProductList() {
-  // React Hook für die Verwaltung des states
-  const [products, setProducts] = useState([]);
 
-  //React Hook zum managen der „Nebenwirkungen“ (jede Aktion, die außerhalb der Funktion selbst etwas verändert oder mit der Außenwelt interagiert)
-  useEffect(() => {
-    fetch("http://localhost:8080/Demo/products")
-    //.then = was soll passieren wenn das Promise von fetch (response) erfolgreich abgeschlossen wurde
+  const searchTerm = "";
+   const [products, setProducts] = useState([]);
+
+  fetch(`http://localhost:8080/Demo/products?search=${encodeURIComponent(searchTerm)}`)
     .then(response => response.json())
     .then(data => {
-      console.log("Produkte:", data);
+      console.log(data); // Hier kannst du z. B. setFilteredProducts(data) aufrufen
       setProducts(data);
     })
-    .catch(error => console.error("Fehler beim Laden der Produkte:", error));
-  }, []);
+    .catch(error => {
+      console.error("Fehler beim Abrufen der Produkte:", error);
+    });
+
 
   return (
     <div className="product-list">
