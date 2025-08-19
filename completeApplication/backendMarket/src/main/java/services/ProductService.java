@@ -24,6 +24,10 @@ public class ProductService {
         return productRepository.findByTitleContainingIgnoreCaseOrCategoryContainingIgnoreCaseOrDescriptionContainingIgnoreCase(searchTerm, searchTerm, searchTerm);
     }
 
+    public List<String> getAllCategories(){
+        return productRepository.findDistinctCategories();
+    }
+
     public Optional<Product> getProductById(String id) {
         return productRepository.findById(id);
     }

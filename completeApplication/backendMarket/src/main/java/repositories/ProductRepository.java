@@ -5,9 +5,10 @@ import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import models.Product;
+import repositories.customRep.ProductRepositoryCustom;
 
 
-public interface ProductRepository extends MongoRepository<Product, String> {
+public interface ProductRepository extends MongoRepository<Product, String>, ProductRepositoryCustom  {
 
     // Beispiel: Alle Produkte nach Kategorie finden
     List<Product> findByCategory(String category);

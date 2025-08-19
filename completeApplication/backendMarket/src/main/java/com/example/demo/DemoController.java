@@ -21,13 +21,12 @@ public class DemoController {
     public DemoController (ProductService productService){
         this.productService = productService;
     }
+       @GetMapping("/categories")
+    public List<String> searchCategories(){
+  
+        return productService.getAllCategories();
+    }
 
-    // @GetMapping("/products")
-    // public ResponseEntity<List<Product>> getProducts() {
-    //     List<Product> products = productService.getAllProducts();
-    //     return ResponseEntity.ok(products); 
-    // } 
-   
     @GetMapping("/products")
     public List<Product> searchProducts(@RequestParam(required = false) String search) {
         if (search == null || search.isBlank()) {
@@ -35,6 +34,8 @@ public class DemoController {
         }
         return productService.search(search);
     }
+
+
 
 }
 
