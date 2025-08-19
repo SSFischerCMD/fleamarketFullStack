@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
-
+import CategoryItem from '../components/CategoryItem';
 function FilterPage(){
     
     const navigate = useNavigate();
@@ -14,10 +14,28 @@ function FilterPage(){
             <button onClick={handleClick}>advanced filters</button>;
         </div>
         <div className="filterContainer">
-            <div>category</div>
-            <div>price</div>
+            <div>
+                <h2>categories</h2>
+                <CategoryItem></CategoryItem>
+            </div>
+            <div>
+                <h2>price range</h2>
+                <div></div>
+            </div>
+            <div>
+                <h2>condition</h2>
+                <div>          
+                    new
+
+                    excellent
+
+                    good
+
+                    fair
+                </div>
+            </div>
+
             <div>location</div>
-            <div>condition</div>
         </div>
     </>
     )

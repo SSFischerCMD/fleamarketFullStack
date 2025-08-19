@@ -21,7 +21,8 @@ import { Outlet } from 'react-router-dom';
 function FrameWork() {
 
     const location = useLocation();
-    const isHomePage = location.pathname === '/home' || location.pathname === '/home/';
+    const isHomePage =  location.pathname === '/home' || location.pathname === '/home/' || 
+                        location.pathname === '/home/filters' || location.pathname === '/home/filters/';
 
 
     const [inputValue, setInputValue] = useState([]);

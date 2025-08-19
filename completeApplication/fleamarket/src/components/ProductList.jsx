@@ -17,7 +17,7 @@ function ProductList({ searchTerm }) {
   return (
     <div className="product-list">
       
-<p>Aktueller Suchbegriff: {searchTerm}</p>
+{/* <p>Aktueller Suchbegriff: {searchTerm}</p> */}
 
       {products.length === 0 ? (
         <p>Keine Produkte gefunden. {searchTerm}</p>
