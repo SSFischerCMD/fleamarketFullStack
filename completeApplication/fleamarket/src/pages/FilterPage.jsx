@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
-import CategoryItem from '../components/CategoryItem';
+import FilterItem from '../components/FilterItem';
 function FilterPage(){
     
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ function FilterPage(){
         <div className="filterContainer">
             <div>
                 <h2>categories</h2>
-                <CategoryItem></CategoryItem>
+                <FilterItem></FilterItem>
             </div>
             <div>
                 <h2>price range</h2>
