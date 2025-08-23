@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import models.Product;
 import repositories.customRep.ProductRepositoryImpl.CategoryCount;
 import services.ProductService;
@@ -23,13 +25,16 @@ public class DemoController {
         this.productService = productService;
     }
     
+    
+    @Operation(summary = "Alle Kategorien abrufen", description = "Gibt eine Liste von Kategorien-Objekten(Name und Produktanzahl) zurück.")
+    @ApiResponse(responseCode = "200", description = "Erfolgreich")
     @GetMapping("/categories")
     public List<CategoryCount> searchCategories(){  
         return productService.getAllCategories();
-    }
-
+    }    
     
-
+    @Operation(summary = "Produkte abrufen", description = "Gibt eine Liste von Produkten zurück")
+    @ApiResponse(responseCode = "200", description = "Erfolgreich")
     @GetMapping("/products")
     public List<Product> searchProducts(@RequestParam(required = false) String search) {
         if (search == null || search.isBlank()) {
