@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import models.Product;
 import repositories.ProductRepository;
+import repositories.customRep.ProductRepositoryImpl.CategoryCount;
 
 @Service
 public class ProductService {
@@ -24,8 +25,8 @@ public class ProductService {
         return productRepository.findByTitleContainingIgnoreCaseOrCategoryContainingIgnoreCaseOrDescriptionContainingIgnoreCase(searchTerm, searchTerm, searchTerm);
     }
 
-    public List<String> getAllCategories(){
-        return productRepository.findDistinctCategories();
+    public List<CategoryCount> getAllCategories(){
+        return productRepository.findCategoryCounts();
     }
 
     public Optional<Product> getProductById(String id) {

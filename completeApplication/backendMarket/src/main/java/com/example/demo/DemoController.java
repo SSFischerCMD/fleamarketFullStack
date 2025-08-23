@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import models.Product;
+import repositories.customRep.ProductRepositoryImpl.CategoryCount;
 import services.ProductService;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -21,11 +22,13 @@ public class DemoController {
     public DemoController (ProductService productService){
         this.productService = productService;
     }
-       @GetMapping("/categories")
-    public List<String> searchCategories(){
-  
+    
+    @GetMapping("/categories")
+    public List<CategoryCount> searchCategories(){  
         return productService.getAllCategories();
     }
+
+    
 
     @GetMapping("/products")
     public List<Product> searchProducts(@RequestParam(required = false) String search) {
