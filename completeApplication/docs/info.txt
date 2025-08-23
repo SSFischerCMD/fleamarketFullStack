@@ -149,7 +149,14 @@
 						Update: save(entity) – Aktualisiert ein bestehendes Objekt in der Datenbank.
 						Delete: deleteById(id) – Löscht ein Objekt anhand seiner ID aus der Datenbank.
 					Du kannst eigene Methoden für benutzerdefinierte Abfragen hinzufügen.
-			
+22.08.2025 - am Projekt weiter arbeiten
+23.08.2025 - Einarbeitung in OpenAPI (REST-API Beschreibung - Bedienungsanleitung für deine API)
+				OpenAPI (früher: Swagger) ist ein Standard, mit dem man REST-APIs beschreiben kann – 
+				in einer maschinen- und menschenlesbaren Form (meist als .yaml oder .json Datei).
+			- Mit OpenAPI lassen sich automatisch Client- und Servercode generieren-Ziel: weniger manueller Aufwand und klar definierte Schnittstellen-Wir verwenden es, um React und Spring Boot sau
+			-Vermeidung von doppeltem Code im Frontend und Backend-Automatisch generierter Code ist konsistent und reduziert Fehler-Schnellere Entwicklung durch weniger manuelle Schritte-Typensicherheit und bessere Wartbarkeit in React-Klare Trennung und Dokumentation der Schnittstelle
+			-OpenAPI ermöglicht eine klare und zentrale Definition der REST-Schnittstellen-Durch Code-Generierung sparen wir Zeit und vermeiden Fehler-Frontend und Backend bleiben automatisch synchron-Die Integration in React ist einfach und typsicher-Im nächsten Schritt könnt ihr eigene APIs auf diese Weise einbinde
+			- http://localhost:8080/swagger-ui.html Anzeige der UI
 Was bedeutet „Nebenwirkung“ in diesem Kontext?
 	- In der funktionalen Programmierung (worauf React teilweise basiert) ist eine „Nebenwirkung“ (engl. side effect) 
 	  jede Aktion, die außerhalb der Funktion selbst etwas verändert oder mit der Außenwelt interagiert.
