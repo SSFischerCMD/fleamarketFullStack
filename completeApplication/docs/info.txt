@@ -4,11 +4,6 @@
 • Kommunikation zwischen Käufer und Verkäufer.
 
 
-
-🧩 Was ist React?
-
-
-
 29.07.2025 	- Wireframe auf Papier
 				1. Seiten auflisten: Welche Seiten wird deine Webapp haben (Startseite,…, etc.)?
 				2. Inhaltsbereiche identifizieren: Welche Bereiche (Header, Navigation, Hauptinhalt, Footer) gehören auf 
@@ -157,6 +152,15 @@
 			-Vermeidung von doppeltem Code im Frontend und Backend-Automatisch generierter Code ist konsistent und reduziert Fehler-Schnellere Entwicklung durch weniger manuelle Schritte-Typensicherheit und bessere Wartbarkeit in React-Klare Trennung und Dokumentation der Schnittstelle
 			-OpenAPI ermöglicht eine klare und zentrale Definition der REST-Schnittstellen-Durch Code-Generierung sparen wir Zeit und vermeiden Fehler-Frontend und Backend bleiben automatisch synchron-Die Integration in React ist einfach und typsicher-Im nächsten Schritt könnt ihr eigene APIs auf diese Weise einbinde
 			- http://localhost:8080/swagger-ui.html Anzeige der UI
+
+04.09.2025	- Widerholung: OpenAPI
+				wenn ich openAPI auf der clientseite aktualisieren möchte: 
+					- muss das backend laufen (damit eine aktuelle openapi.yaml/openapi.json Datei existiert, die während der laufzeit generiert wird
+					- muss ich "npx openapi-generator-cli generate" im Frontend ausführen 
+								dadurch wird openapitools.json gelesen und sich die json Datei von dem angegebenen Url geholt
+
+
+
 Was bedeutet „Nebenwirkung“ in diesem Kontext?
 	- In der funktionalen Programmierung (worauf React teilweise basiert) ist eine „Nebenwirkung“ (engl. side effect) 
 	  jede Aktion, die außerhalb der Funktion selbst etwas verändert oder mit der Außenwelt interagiert.
