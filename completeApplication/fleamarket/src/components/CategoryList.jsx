@@ -7,10 +7,10 @@
 
 function CategoryList({ categories }) {
   return (
-    <div>
-      {categories.map((item, index) => (
-        <div>
-          {item.category}: {item.count}
+    <div >
+      {categories.data?.map(categoryObject => (
+        <div key={categoryObject.category} >
+          {categoryObject.category}: {categoryObject.count}
         </div>
       ))}
     </div>

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import CategoryList from "./CategoryList";
+import { DemoControllerApi } from "../api/api.ts";
 
 function FilterItem() {
     const [categoryObject, setCategoryObject] = useState([]);
     const [priceObject, setPriceObject] = useState([]);
-
+    const api = new DemoControllerApi();
     useEffect(() => {
 
         fetchData();
@@ -14,16 +15,14 @@ function FilterItem() {
             //fetchCondition();
         }
 
-        async function fetchCategories(){
-            try {
-                const response = await fetch('http://localhost:8080/Demo/categories');
-                const CategoryData = await response.json();
-                setCategoryObject(CategoryData);
-            } 
-            catch (error) {
-                console.error("Kategorie-Fehler:", error);
-                alert("Fehler beim Laden der Kategorien");
-            }
+        function fetchCategories(){
+            api.searchCategories()
+                .then(
+                    data => {
+                    setCategoryObject(data)})
+                .catch(
+                    error => {
+                    alert("kategorien fehler")});
         }
 
         async function fetchPriceRange(){
@@ -31,6 +30,7 @@ function FilterItem() {
                     const response = await fetch('http://localhost:8080/Demo/price');
                     const priceData = await response.json();
                     setPriceObject(priceData);
+                    
                 } 
                 catch (error) {
                     console.error("Preis-Fehler:", error);

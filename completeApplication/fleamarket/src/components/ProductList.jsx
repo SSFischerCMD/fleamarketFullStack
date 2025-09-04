@@ -40,14 +40,8 @@ export default ProductList;
 
 
 /* 
-
-Der Befehl .then() ist ein zentraler Bestandteil der Promise-Programmierung in JavaScript. 
-Er wird verwendet, um asynchrone Operationen zu verarbeiten – also solche, die nicht sofort abgeschlossen sind, 
-wie z. B. das Laden von Daten von einem Server.
-
 Grundprinzip von .then()
-Wenn du eine Funktion hast, die ein Promise zurückgibt, kannst du mit .then() festlegen, was passieren soll, 
-wenn das Promise erfolgreich abgeschlossen wurde.
+Wenn du eine Funktion hast, die ein Promise zurückgibt, kannst du mit .then() festlegen, was passieren soll, wenn das Promise erfolgreich abgeschlossen wurde.
 
 alternative:
 useEffect(() => {
@@ -65,26 +59,5 @@ useEffect(() => {
 }, []);
 
 
-
-import { useState } from "react";
-
-function MyComponent() {
-  const [inputValue, setInputValue] = useState("");
-
-  const handleChange = (event) => {
-    setInputValue(event.target.value);
-  };
-
-  const handleSubmit = () => {
-    console.log("Eingegebener Text:", inputValue);
-  };
-
-  return (
-    <div>
-      <input type="text" value={inputValue} onChange={handleChange} />
-      <button onClick={handleSubmit}>Absenden</button>
-    </div>
-  );
-}
 
 */
