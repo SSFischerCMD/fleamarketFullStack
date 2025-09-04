@@ -1,37 +1,38 @@
 import React, { useEffect, useState } from "react";
+import { DemoControllerApi } from "../api/api.ts";
 
 function ProductList({ searchTerm }) {
+
+  const api = new DemoControllerApi();
   const [products, setProducts] = useState([]);
+
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    fetch(`http://localhost:8080/Demo/products?search=${encodeURIComponent(searchTerm)}`)
-      .then(response => response.json())
+    api.searchProducts(searchTerm)
       .then(data => {
         console.log(data);
         setProducts(data);
       })
       .catch(error => {
-        console.error("Fehler beim Abrufen der Produkte:", error);
+        console.error(error);
+        setError("Unable to load products.");
       });
-  }, [searchTerm]); // <- nur neu laden, wenn sich searchTerm ändert
+  }, [searchTerm]);
 
   return (
-    <div className="product-list">
-      
-{/* <p>Aktueller Suchbegriff: {searchTerm}</p> */}
-
-      {products.length === 0 ? (
-        <p>Keine Produkte gefunden. {searchTerm}</p>
-      ) : (
-        products.map(product => (
-          <div key={product.id} className="product-item">
-            <img src={product.images[0]} alt={product.name} />
-            <h3>{product.title}</h3>
-            <p>{product.description}</p>
-            <p><b>{product.price} €</b></p>
-          </div>
-        ))
-      )}
-    </div>
+    <div id="thisOne" className="product-list">
+      {products.data?.map(product => (
+        <div key={product.id} className="product-item">
+          <img src={product.images[0]} alt={product.name}></img>
+          <h3>{product.title}</h3>
+          <p>{product.description}</p>
+          <p><b>{product.price} €</b></p>
+          <p className="subtitle">{product.condition}</p>
+        </div>
+      ))}  
+      {error && <p className="error">{error}</p>}
+    </div> 
   );
 }
 
@@ -39,6 +40,7 @@ export default ProductList;
 
 
 /* 
+
 Der Befehl .then() ist ein zentraler Bestandteil der Promise-Programmierung in JavaScript. 
 Er wird verwendet, um asynchrone Operationen zu verarbeiten – also solche, die nicht sofort abgeschlossen sind, 
 wie z. B. das Laden von Daten von einem Server.
