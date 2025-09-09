@@ -158,7 +158,31 @@
 					- muss das backend laufen (damit eine aktuelle openapi.yaml/openapi.json Datei existiert, die während der laufzeit generiert wird
 					- muss ich "npx openapi-generator-cli generate" im Frontend ausführen 
 								dadurch wird openapitools.json gelesen und sich die json Datei von dem angegebenen Url geholt
+			- Einarbeitung: WAS IST DOCKER?
+				Docker: 		- Plattform zur Containerisierung von Anwendungen.
+								- ermöglicht es, Anwendungen schnell und einfach zu erstellen, bereitzustellen und zu skalieren.
+				DOCKERFILE 		- Eine Textdatei, die beschreibt, wie ein Docker Image erstellt wird. (Liste wer/was/wie beötigt wird um ein Bauplan zu erstellen)
+								- Enthält Anweisungen zum Kopieren von Dateien, Installieren von Abhängigkeiten, Ausführen von Befehlen und vieles mehr.
+								- Wird mit dem Befehl docker build verwendet, um ein Image zu erstellen.
+				Image:			- Eine Vorlage zur Erstellung von Containern (ein Bauplan für ein Haus)
+								- wird mithilfe der dockerfile und dem "docker build" befehl erstellt 
+										[ docker build -t fleamarket-backend-0.0.1.jar . ]
+										[ -t tags your image with a name; the . lets Docker know where it can find the Dockerfile.]
 
+										[Mit docker tag gibst du einem bestehenden Image einen neuen Namen oder eine neue Version.]
+				Container:	 	- eine leichtgewichtige, eigenständige ausführbare Softwareeinheit, 
+								- enthält alles, was zur Ausführung einer Anwendung erforderlich ist (z.B. Laufzeitumgebung, Systemtools, Systembibliotheken, Einstellungen)
+								- sind isoliert voneinander und vom Host-System, was Konflikte zwischen verschiedenen Anwendungen verhindert.
+								- Eine laufende Instanz eines Docker Images (wie ein gebautes Haus, das auf dem Bauplan basiert.)
+
+				Docker Compose	- startet, stoppt und verbindet die Container einer Multi-Container-Docker-Anwendungen automatisch für dich.
+								- Mit docker-compose. yml  kannst du die Dienste deiner Anwendung (z.B. Frontend, Backend, Datenbank) beschreiben und ihre Beziehungen definieren.
+								- Vorteile:
+									. Einfache Verwaltung mehrerer Container
+									. Definieren von Netzwerkverbindungen zwischen Containern
+									. Skalierung einzelner Dienste
+
+					
 
 
 Was bedeutet „Nebenwirkung“ in diesem Kontext?

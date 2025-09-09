@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import CategoryList from "./CategoryList";
-import { DemoControllerApi } from "../api/api.ts";
+import { FleamarketControllerApi } from "../api/api.ts";
 
 function FilterItem() {
     const [categoryObject, setCategoryObject] = useState([]);
     const [priceObject, setPriceObject] = useState([]);
-    const api = new DemoControllerApi();
+    const api = new FleamarketControllerApi();
     useEffect(() => {
 
         fetchData();

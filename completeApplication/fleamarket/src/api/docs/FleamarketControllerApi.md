@@ -1,11 +1,11 @@
-# DemoControllerApi
+# FleamarketControllerApi
 
 All URIs are relative to *http://localhost:8080*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**searchCategories**](#searchcategories) | **GET** /Demo/categories | Alle Kategorien abrufen|
-|[**searchProducts**](#searchproducts) | **GET** /Demo/products | Produkte abrufen|
+|[**searchCategories**](#searchcategories) | **GET** /categories | Alle Kategorien abrufen|
+|[**searchProducts**](#searchproducts) | **GET** /products | Produkte abrufen|
 
 # **searchCategories**
 > Array<CategoryCount> searchCategories()
@@ -16,12 +16,12 @@ Gibt eine Liste von Kategorien-Objekten(Name und Produktanzahl) zurück.
 
 ```typescript
 import {
-    DemoControllerApi,
+    FleamarketControllerApi,
     Configuration
 } from './api';
 
 const configuration = new Configuration();
-const apiInstance = new DemoControllerApi(configuration);
+const apiInstance = new FleamarketControllerApi(configuration);
 
 const { status, data } = await apiInstance.searchCategories();
 ```
@@ -60,12 +60,12 @@ Gibt eine Liste von Produkten zurück
 
 ```typescript
 import {
-    DemoControllerApi,
+    FleamarketControllerApi,
     Configuration
 } from './api';
 
 const configuration = new Configuration();
-const apiInstance = new DemoControllerApi(configuration);
+const apiInstance = new FleamarketControllerApi(configuration);
 
 let search: string; // (optional) (default to undefined)
 

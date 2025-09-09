@@ -1,10 +1,9 @@
-package com.example.demo;
+package com;
 
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,12 +15,11 @@ import services.ProductService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/Demo")
-public class DemoController {
+public class FleamarketController {
 
     private final ProductService productService;
     
-    public DemoController (ProductService productService){
+    public FleamarketController (ProductService productService){
         this.productService = productService;
     }
     

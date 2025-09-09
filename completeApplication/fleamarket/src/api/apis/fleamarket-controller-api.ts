@@ -26,10 +26,10 @@ import type { CategoryCount } from '../models';
 // @ts-ignore
 import type { Product } from '../models';
 /**
- * DemoControllerApi - axios parameter creator
+ * FleamarketControllerApi - axios parameter creator
  * @export
  */
-export const DemoControllerApiAxiosParamCreator = function (configuration?: Configuration) {
+export const FleamarketControllerApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Gibt eine Liste von Kategorien-Objekten(Name und Produktanzahl) zurück.
@@ -38,7 +38,7 @@ export const DemoControllerApiAxiosParamCreator = function (configuration?: Conf
          * @throws {RequiredError}
          */
         searchCategories: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/Demo/categories`;
+            const localVarPath = `/categories`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -69,7 +69,7 @@ export const DemoControllerApiAxiosParamCreator = function (configuration?: Conf
          * @throws {RequiredError}
          */
         searchProducts: async (search?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/Demo/products`;
+            const localVarPath = `/products`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -100,11 +100,11 @@ export const DemoControllerApiAxiosParamCreator = function (configuration?: Conf
 };
 
 /**
- * DemoControllerApi - functional programming interface
+ * FleamarketControllerApi - functional programming interface
  * @export
  */
-export const DemoControllerApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = DemoControllerApiAxiosParamCreator(configuration)
+export const FleamarketControllerApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = FleamarketControllerApiAxiosParamCreator(configuration)
     return {
         /**
          * Gibt eine Liste von Kategorien-Objekten(Name und Produktanzahl) zurück.
@@ -115,7 +115,7 @@ export const DemoControllerApiFp = function(configuration?: Configuration) {
         async searchCategories(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CategoryCount>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchCategories(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DemoControllerApi.searchCategories']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['FleamarketControllerApi.searchCategories']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -128,18 +128,18 @@ export const DemoControllerApiFp = function(configuration?: Configuration) {
         async searchProducts(search?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Product>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchProducts(search, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DemoControllerApi.searchProducts']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['FleamarketControllerApi.searchProducts']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * DemoControllerApi - factory interface
+ * FleamarketControllerApi - factory interface
  * @export
  */
-export const DemoControllerApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = DemoControllerApiFp(configuration)
+export const FleamarketControllerApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = FleamarketControllerApiFp(configuration)
     return {
         /**
          * Gibt eine Liste von Kategorien-Objekten(Name und Produktanzahl) zurück.
@@ -164,21 +164,21 @@ export const DemoControllerApiFactory = function (configuration?: Configuration,
 };
 
 /**
- * DemoControllerApi - object-oriented interface
+ * FleamarketControllerApi - object-oriented interface
  * @export
- * @class DemoControllerApi
+ * @class FleamarketControllerApi
  * @extends {BaseAPI}
  */
-export class DemoControllerApi extends BaseAPI {
+export class FleamarketControllerApi extends BaseAPI {
     /**
      * Gibt eine Liste von Kategorien-Objekten(Name und Produktanzahl) zurück.
      * @summary Alle Kategorien abrufen
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DemoControllerApi
+     * @memberof FleamarketControllerApi
      */
     public searchCategories(options?: RawAxiosRequestConfig) {
-        return DemoControllerApiFp(this.configuration).searchCategories(options).then((request) => request(this.axios, this.basePath));
+        return FleamarketControllerApiFp(this.configuration).searchCategories(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -187,10 +187,10 @@ export class DemoControllerApi extends BaseAPI {
      * @param {string} [search] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DemoControllerApi
+     * @memberof FleamarketControllerApi
      */
     public searchProducts(search?: string, options?: RawAxiosRequestConfig) {
-        return DemoControllerApiFp(this.configuration).searchProducts(search, options).then((request) => request(this.axios, this.basePath));
+        return FleamarketControllerApiFp(this.configuration).searchProducts(search, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

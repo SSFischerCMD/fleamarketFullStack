@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { DemoControllerApi } from "../api/api.ts";
+import { FleamarketControllerApi } from "../api/api.ts";
 
 function ProductList({ searchTerm }) {
 
-  const api = new DemoControllerApi();
+  const api = new FleamarketControllerApi();
   const [products, setProducts] = useState([]);
 
   const [error, setError] = useState(null);

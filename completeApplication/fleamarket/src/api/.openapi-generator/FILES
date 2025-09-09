@@ -2,12 +2,12 @@
 .npmignore
 .openapi-generator-ignore
 api.ts
-apis/demo-controller-api.ts
+apis/fleamarket-controller-api.ts
 base.ts
 common.ts
 configuration.ts
 docs/CategoryCount.md
-docs/DemoControllerApi.md
+docs/FleamarketControllerApi.md
 docs/Product.md
 docs/Seller.md
 git_push.sh

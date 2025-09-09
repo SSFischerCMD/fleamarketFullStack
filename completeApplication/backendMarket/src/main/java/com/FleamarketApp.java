@@ -1,4 +1,4 @@
-package com.example.demo;
+package com;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,11 +6,11 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 
 @EnableMongoRepositories(basePackages = "repositories")
-@SpringBootApplication(scanBasePackages = {"com.example.demo", "services", "repositories"})
-public class DemoApplication {
+@SpringBootApplication(scanBasePackages = {"com", "services", "repositories"})
+public class FleamarketApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(FleamarketApp.class, args);
 	}
 
 }
