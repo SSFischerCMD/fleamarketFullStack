@@ -182,8 +182,46 @@
 									. Definieren von Netzwerkverbindungen zwischen Containern
 									. Skalierung einzelner Dienste
 
-					
+20.09.2025	- AWS (Amazon Web Services) ist eine Sammlung von Cloud-Computing-Diensten, die von Amazon angeboten werden.
+				o Bietet eine breite Palette von Diensten, darunter: Computing, Storage und Networking Angebote
 
+				WICHTIGE AWS-DIENSTE FUR DAS DEPLOYMENT
+				Elastic Compute Cloud (EC2): Virtuelle Server in der Cloud.
+				Elastic Container Service (ECS) oder Elastic Kubernetes Service (EKS): Zum Ausfuhrenon Docker-Containern in der Cloud.
+				o Relational Database Service (RDS): Verwaltete relationale Datenbanken (z.B. MySQL,PostgreSQL).
+				o Elastic Beanstalk: Plattform zum einfachen Deployment und Management vonWebanwendungen.
+				a S3 (Simple Storage Service): Objektspeicher zum Speichern von Dateien.
+				a CloudFront: Content Delivery Network (CDN) zur schnellen Bereitstellung statischer Inhalte.
+
+
+				DEPLOYMENT-STRATEGIEN
+
+				o Blue-Green Deployment: 	Zwei identische Umgebungen (blau und grün), eine aktiv, eine inaktiv. 
+											Neue Version wird in der inaktiven Umgebung bereitgestellt und getestet. Bei Erfolg
+											wird der Traffic auf die neue Umgebung umgeschaltet.
+				o Canary Deployment: 		Neue Version wird für einen kleinen Teil der Benutzer bereitgestellt.
+											Bei Erfolg wird sie schrittweise für mehr Benutzer ausgerollt.
+				o Rolling Deployment: 		Neue Version wird schrittweise auf den Servern ausgerollt, wahrend die
+											alte Version noch lauft.			
+
+			SICHERHEIT IN DER CLOUD - SCHUTZE DEINE ANWENDUNG
+
+			· Zugriffskontrolle: Beschränke den Zugriff auf deine Ressourcen auf autorisierte Benutzer und Anwendungen.
+			· Netzwerksicherheit: Schütze deine Anwendung vor unbefugtem Zugriff und Angriffen.
+			· Datenverschlüsselung: Verschlüssele sensible Daten, sowohl im Ruhezustand als auch während der Übertragung.
+			. Sicherheitsupdates und Patches: Halte deine Anwendung und alle Abhängigkeiten auf dem neuesten Stand.
+			. Monitoring und Logging: Überwache deine Anwendung auf verdächtige Aktivitäten undprotokolliere alle Ereignisse.
+
+			TIPPS ZUR ABSICHERUNG DEINER ANWENDUNG
+
+			· Verwende starke Passwörter und Multi-Faktor-Authentifizierung.
+			· Beschränke den Zugriff auf deine Ressourcen mit IAM-Rollen und -Richtlinien.
+			  Verwende Sicherheitsgruppen und Network Access Control Lists (NACLs), um den Netzwerkverkehr zu kontrollieren.
+			· Verschlüssele sensible Daten mit AWS Key Management Service (KMS) oder anderenVerschlüsselungsdiensten.
+			· Halte deine Anwendung und Abhängigkeiten auf dem neuesten Stand.
+			o Verwende CloudWatch und andere Monitoring-Tools, um deine Anwendung zu überwachen.
+			· Aktiviere Logging, um Ereignisse und Fehler zu protokollieren.
+			· Führe regelmäßige Sicherheitsüberprüfungen und Penetrationstests durch.
 
 Was bedeutet „Nebenwirkung“ in diesem Kontext?
 	- In der funktionalen Programmierung (worauf React teilweise basiert) ist eine „Nebenwirkung“ (engl. side effect) 
