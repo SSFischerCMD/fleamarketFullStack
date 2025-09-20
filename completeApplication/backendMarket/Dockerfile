@@ -8,4 +8,5 @@ COPY target/fleamarket-Backend-0.0.1.jar fleamarket-Backend-0.0.1.jar
 EXPOSE 8080
 
 # Startkommando
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "fleamarket-Backend-0.0.1.jar"]
+
