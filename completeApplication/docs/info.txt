@@ -223,6 +223,25 @@
 			· Aktiviere Logging, um Ereignisse und Fehler zu protokollieren.
 			· Führe regelmäßige Sicherheitsüberprüfungen und Penetrationstests durch.
 
+Heute gemacht: lokale Datenbank auf dem Server kopiert (in einem Docker container der mit compose gleichzeitig mit dem Backend anspringt)
+
+Was jetzt notwendig ist: Frontend kann auf beide zugkreifen (letzter stand: als screenshot hinterlegt)
+
+docker pull <repository>:<tag> - Image updaten nicht vergessen
+docker compose pull - alle Images auf die neueste Version gebracht 
+docker compose up - Container werden automatisch neu gestartet.
+------
+23.09.2025 	Authentifizierungsfehler zwischen den springboot container und dem mongodb Container behoben
+			In MongoDB hat jeder Benutzer ein Heimat-Datenbank (authSource), in der er angelegt ist.
+				Dein Admin-User liegt in der DB admin.
+				Dein App-User liegt in der DB fleamarketdb.
+
+			Benutzer gehören immer zu einer DB (z. B. admin oder fleamarketdb).
+			Beim Login muss man User + Passwort + authSource (Heimat-DB) korrekt angeben.
+
+
+
+
 Was bedeutet „Nebenwirkung“ in diesem Kontext?
 	- In der funktionalen Programmierung (worauf React teilweise basiert) ist eine „Nebenwirkung“ (engl. side effect) 
 	  jede Aktion, die außerhalb der Funktion selbst etwas verändert oder mit der Außenwelt interagiert.
