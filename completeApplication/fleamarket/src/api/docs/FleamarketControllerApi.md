@@ -1,6 +1,6 @@
 # FleamarketControllerApi
 
-All URIs are relative to *http://ec2-51-21-167-116.eu-north-1.compute.amazonaws.com:8080*
+All URIs are relative to *http://ec2-13-60-83-82.eu-north-1.compute.amazonaws.com:8080*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|

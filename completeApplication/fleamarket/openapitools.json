@@ -6,7 +6,7 @@
     "generators": {
       "ts-axios-client": {
         "generatorName": "typescript-axios",
-        "inputSpec": "http://ec2-51-21-167-116.eu-north-1.compute.amazonaws.com:8080/v3/api-docs",
+        "inputSpec": "http://ec2-13-60-83-82.eu-north-1.compute.amazonaws.com:8080/v3/api-docs",
         "output": "src/api",
         "additionalProperties": {
           "withSeparateModelsAndApi": true,

@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { FleamarketControllerApi } from "../api/api.ts";
+import { useNavigate } from "react-router-dom";
+import ProductItem from "./ProductItem.jsx";
+ import ExitIcon from '../svg/exit';
+import { Link } from "react-router-dom";
 
 function ProductList({ searchTerm }) {
-
+////// Producte mit search item vs produkte ohne search item
   const api = new FleamarketControllerApi();
   const [products, setProducts] = useState([]);
-
+  const [product, setProduct] = useState([null]);
+  
+  const [selected, setSelected] = useState([false]);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     api.searchProducts(searchTerm)
@@ -20,18 +27,50 @@ function ProductList({ searchTerm }) {
       });
   }, [searchTerm]);
 
+    function handleItemClick(thisProduct) {
+      setSelected(true);
+      setProduct(thisProduct);
+    }
+    function closeSelected(){
+      setSelected(false);
+    }
+
+ if(selected == true){
+     return(
+      <>
+         <div className="popUp-container">
+        <div className="popUp-content">
+        <div className="exitDiv" onClick={() => closeSelected()} >
+          <ExitIcon />
+        </div>
+        <h1>{product.title}</h1>
+        <p>{product.description}</p>
+        <p><b>{product.price} €</b></p>
+        <p>{product.condition}</p>
+        <p>{product.available}</p>
+        <p><b>{product.category} </b></p>
+        <p>{product.id}</p>
+        <img src={product.images[0]} alt={product.name}></img>
+        <p><b>{product.location}</b></p>
+        <p>{product.name}</p>
+        <p>{product.userId}</p>
+        <p><b>{product.category} </b></p>
+        <p>{product.id}</p>
+      </div>
+    </div>
+    </>)
+ }
+ else{ }
+     
+   
+
   return (
     <div id="thisOne" className="product-list">
+
       {products.data?.map(product => (
-        <div key={product.id} className="product-item">
-          <img src={product.images[0]} alt={product.name}></img>
-          <h3>{product.title}</h3>
-          <p>{product.description}</p>
-          <p><b>{product.price} €</b></p>
-          <p className="subtitle">{product.condition}</p>
-        </div>
+        <ProductItem onItemClick={handleItemClick} key={product.id} thisProduct={product}/>    
       ))}  
-      {error && <p className="error">{error}</p>}
+    {error && <p className="error">{error}</p>}
     </div> 
   );
 }

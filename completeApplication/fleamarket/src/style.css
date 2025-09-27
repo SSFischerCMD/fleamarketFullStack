@@ -136,6 +136,10 @@ input {
     margin-top: 40px;
     padding-bottom: 60px;
 }
+.exitDiv {
+    width: 24px;
+    margin-left: 550px;
+}
 .product-item {
     width: 300px;
     background-color: rgb(255, 255, 255);
