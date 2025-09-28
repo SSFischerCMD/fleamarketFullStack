@@ -4,14 +4,14 @@ import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function CartPage(){
+function CartItem({onItemClick}){
   return(
     <>
       <div className="popUp-container">
         <div className="popUp-content">
-          <Link to={"/home"}>
+          <div onClick={() => onItemClick(false)}>
             <ExitIcon ></ExitIcon>
-          </Link>
+          </div>
           <h1>CART IS OPENED</h1>
           <div>hallo mein name ist zusanne</div>
         </div>
@@ -20,4 +20,4 @@ function CartPage(){
   );
 }
 
-export default CartPage
+export default CartItem

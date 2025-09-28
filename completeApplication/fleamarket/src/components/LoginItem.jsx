@@ -4,14 +4,14 @@ import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function LoginPage(){
+function LoginItem({onItemClick}){
   return(
     <>
       <div className="popUp-container">
         <div className="popUp-content">
-          <Link to={"/home"}>
+          <div onClick={() => onItemClick(false)}>
             <ExitIcon ></ExitIcon>
-          </Link>
+          </div>
           <h1>Sign In</h1>
           <div>username</div>
         </div>
@@ -20,4 +20,4 @@ function LoginPage(){
   );
 }
 
-export default LoginPage
+export default LoginItem
