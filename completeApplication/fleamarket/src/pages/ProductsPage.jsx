@@ -9,9 +9,6 @@ function ProductPage() {
     <>
       <HeaderItem></HeaderItem>
       <ProductList searchTerm={searchTerm} />
-      <p>----------------------------------</p>
-       <ProductList searchTerm={""} />
-
     </>
   );
 }

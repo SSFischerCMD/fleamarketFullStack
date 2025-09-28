@@ -150,6 +150,13 @@ input {
     margin-bottom: 40px;
     min-width: 100px;
 }
+.product-item-text {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.product-item h3 {
+    min-height: 50px;
+}
 .product-item img{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;

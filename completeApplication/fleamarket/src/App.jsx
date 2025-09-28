@@ -19,16 +19,12 @@ function App() {
     <>
       <div className="myApp">  
           <Routes>      
-             
                 <Route path="home"  element={<HomePage />}>
                   <Route index element={<NoFilterPage />} />
                   <Route path="filters" element={<FilterPage />} />
-                  <Route path="Cart" element={<CartPage/>}/>
                 </Route>
                 <Route path="products" element={<ProductPage/>}/>
-                <Route path="products/:searchTerm" element={<ProductPage />} />
-
-              
+                <Route path="products/:searchTerm" element={<ProductPage />} /> 
           </Routes>       
       </div>
     </>

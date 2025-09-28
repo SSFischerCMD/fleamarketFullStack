@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { FleamarketControllerApi } from "../api/api.ts";
 import { useNavigate } from "react-router-dom";
 import ProductItem from "./ProductItem.jsx";
- import ExitIcon from '../svg/exit';
 import { Link } from "react-router-dom";
+import ProductItemInfo from "./ProductItemInfo.jsx";
 
 function ProductList({ searchTerm }) {
-////// Producte mit search item vs produkte ohne search item
   const api = new FleamarketControllerApi();
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState([null]);
@@ -31,46 +30,17 @@ function ProductList({ searchTerm }) {
       setSelected(true);
       setProduct(thisProduct);
     }
-    function closeSelected(){
+    function handleInfoItemClick(){
       setSelected(false);
     }
-
- if(selected == true){
-     return(
-      <>
-         <div className="popUp-container">
-        <div className="popUp-content">
-        <div className="exitDiv" onClick={() => closeSelected()} >
-          <ExitIcon />
-        </div>
-        <h1>{product.title}</h1>
-        <p>{product.description}</p>
-        <p><b>{product.price} €</b></p>
-        <p>{product.condition}</p>
-        <p>{product.available}</p>
-        <p><b>{product.category} </b></p>
-        <p>{product.id}</p>
-        <img src={product.images[0]} alt={product.name}></img>
-        <p><b>{product.location}</b></p>
-        <p>{product.name}</p>
-        <p>{product.userId}</p>
-        <p><b>{product.category} </b></p>
-        <p>{product.id}</p>
-      </div>
-    </div>
-    </>)
- }
- else{ }
      
-   
-
   return (
     <div id="thisOne" className="product-list">
-
       {products.data?.map(product => (
         <ProductItem onItemClick={handleItemClick} key={product.id} thisProduct={product}/>    
       ))}  
-    {error && <p className="error">{error}</p>}
+      {error && <p className="error">{error}</p>}
+      {selected == true ? <ProductItemInfo thisProduct={product} onItemClick={handleInfoItemClick} /> : null}
     </div> 
   );
 }
