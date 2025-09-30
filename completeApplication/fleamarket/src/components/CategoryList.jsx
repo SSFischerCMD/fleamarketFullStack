@@ -1,18 +1,17 @@
-
-// objekt vom Backend:
-
-// ITEM
-//   {"category": "home & decor","count": 10}   [INDEX 0],
-//   {"category": "clothing","count": 3}        [INDEX 1],
+import UserIcon from "../svg/UserIcon";
 
 function CategoryList({ categories }) {
   return (
     <div >
-      {categories.data?.map(categoryObject => (
-        <div key={categoryObject.category} >
-          {categoryObject.category}: {categoryObject.count}
-        </div>
-      ))}
+      <div className="statItem">    
+          {categories.data?.map(categoryObject => (
+            <div key={categoryObject.category}>
+            <h3>{categoryObject.category}</h3>
+            <div className="subtitle">{categoryObject.count}</div>
+            <UserIcon></UserIcon>
+            </div>
+          ))}
+      </div>
     </div>
   );
 }

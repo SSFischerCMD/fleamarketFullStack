@@ -18,7 +18,7 @@ function FilterPage(){
                 <h2>categories</h2>
                 <FilterItem></FilterItem>
             </div>
-            <div>
+            {/* <div>
                 <h2>price range</h2>
                 <div></div>
             </div>
@@ -35,7 +35,7 @@ function FilterPage(){
                 </div>
             </div>
 
-            <div>location</div>
+            <div>location</div> */}
         </div>
     </>
     )

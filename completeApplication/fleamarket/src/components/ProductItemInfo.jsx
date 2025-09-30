@@ -56,6 +56,43 @@ function ProductItemInfo({ thisProduct, onItemClick }) {
     }
   };
 
+  const handleContactSeller = () => {
+    const sellerEmail =
+      thisProduct?.seller?.email ||
+      thisProduct?.sellerEmail ||
+      thisProduct?.email ||
+      "beispielEmail@web.de";
+
+    if (!sellerEmail) {
+      setMsg("Für dieses Produkt ist keine Verkäufer-E-Mail hinterlegt.");
+      return;
+    }
+
+    const sellerName =
+      thisProduct?.seller?.name || thisProduct?.sellerName || "Verkäufer/in";
+    const prodId = thisProduct?.id || thisProduct?._id || "";
+    const buyer = JSON.parse(localStorage.getItem("user") || "null");
+
+    const subject = `Anfrage: ${thisProduct?.title ?? "Artikel"}${prodId ? ` (${prodId})` : ""}`;
+    const bodyLines = [
+      `Hallo ${sellerName},`,
+      "",
+      `ich interessiere mich für "${thisProduct?.title ?? "deinen Artikel"}".`,
+      `Preis: ${thisProduct?.price ?? "—"} €`,
+      thisProduct?.location ? `Ort: ${thisProduct.location}` : null,
+      "",
+      "Ist der Artikel noch verfügbar? Können wir einen Termin zur Abholung/Versand vereinbaren?",
+      "",
+      buyer?.email ? `Viele Grüße\n${buyer.email}` : "Viele Grüße",
+    ].filter(Boolean);
+
+    const body = bodyLines.join("\n");
+    const url = `mailto:${encodeURIComponent(sellerEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Öffnet das Standard-Mailprogramm
+    window.location.href = url;
+  };
+
   return (
     <div>
       <div className="popUp-container">
@@ -88,15 +125,10 @@ function ProductItemInfo({ thisProduct, onItemClick }) {
             {loading ? "Bitte warten…" : "add to cart"}
           </button>
 
-          <button
-            className="productBTN"
-            onClick={() => {
-              // hier kannst du später deinen Kontakt-Flow einbauen
-              navigate("/account");
-            }}
-          >
+          <button className="productBTN" onClick={handleContactSeller}>
             contact seller
           </button>
+
 
           {msg ? <p style={{ marginTop: 8 }}>{msg}</p> : null}
 

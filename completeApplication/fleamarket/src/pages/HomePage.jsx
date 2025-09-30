@@ -30,12 +30,7 @@ function HomePage() {
         </div>
         <div className="productView">
         </div>
-        <div className="stats">
-            <StatisticItem headline={"Sellers"} statInfo={"1000+ Active Sellers"}></StatisticItem>
-            <StatisticItem headline={"Items"} statInfo={"50k+ Items listed"}></StatisticItem>
-            <StatisticItem headline={"Rating"} statInfo={"1000+ Average Rating"}></StatisticItem>
-            <StatisticItem headline={"head"} statInfo={"1000+ Active Sellers"}></StatisticItem>
-        </div>  
+
     </main>
     </>
   );
