@@ -1,28 +1,30 @@
 package com;
 
 import java.util.List;
-
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import models.Product;
+import models.User;
 import repositories.customRep.ProductRepositoryImpl.CategoryCount;
 import services.ProductService;
-
+import services.UserService;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class FleamarketController {
 
     private final ProductService productService;
+    private final UserService userService;
     
-    public FleamarketController (ProductService productService){
+    public FleamarketController (ProductService productService, UserService userService){
         this.productService = productService;
+        this.userService = userService;
     }
-    
     
     @Operation(summary = "Alle Kategorien abrufen", description = "Gibt eine Liste von Kategorien-Objekten(Name und Produktanzahl) zurück.")
     @ApiResponse(responseCode = "200", description = "Erfolgreich")
@@ -41,7 +43,22 @@ public class FleamarketController {
         return productService.search(search);
     }
 
-
+    @Operation(summary = "Login: Benutzerobjekt anhand der E-Mail suchen", description = "Prüft ob die eingegebenen Daten zu einemBenutzer gehören")
+    @ApiResponse(responseCode = "200", description = "Erfolgreich")
+    @GetMapping("/userLogin")
+    public ResponseEntity<User> findUser(@RequestParam("email") String email) {
+        return userService.getUserbyEMail(email)
+        .map(ResponseEntity::ok)
+        .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    
+    @Operation(summary = "Registrierung: Benutzerobjekt wird neu angelegt", description = "Prüft ob man auf Grundlage der angegebenen Daten ein neuen Nutzer anlegen kann")
+    @ApiResponse(responseCode = "200", description = "Erfolgreich")
+    @GetMapping("/usersRegistry")
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        User created = userService.createNewUser(user);
+        return ResponseEntity.ok(created);
+    }
 
 }
 

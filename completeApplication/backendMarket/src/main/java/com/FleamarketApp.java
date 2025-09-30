@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 
 @EnableMongoRepositories(basePackages = "repositories")
-@SpringBootApplication(scanBasePackages = {"com", "services", "repositories"})
+@SpringBootApplication(scanBasePackages = {"com", "services", "repositories", "models"})
 public class FleamarketApp {
 
 	public static void main(String[] args) {
