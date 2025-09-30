@@ -10,9 +10,11 @@ docs/CategoryCount.md
 docs/FleamarketControllerApi.md
 docs/Product.md
 docs/Seller.md
+docs/User.md
 git_push.sh
 index.ts
 models/category-count.ts
 models/index.ts
 models/product.ts
 models/seller.ts
+models/user.ts

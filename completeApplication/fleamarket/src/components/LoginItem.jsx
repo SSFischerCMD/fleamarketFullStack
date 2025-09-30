@@ -4,8 +4,12 @@ import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { FleamarketControllerApi } from "../api/api.ts";
+import { useEffect } from "react";
 
 function LoginItem({onItemClick}){
+  const api = new FleamarketControllerApi();
+
   const [mode, setMode] = useState("login"); //login oder Registrierung  
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
@@ -19,16 +23,32 @@ function LoginItem({onItemClick}){
     return "";
   }
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const err = validate();
-    if (err) return setMsg(err);
 
-    // <<Fake-API-Aufruf>>
-    await new Promise((r) => setTimeout(r, 300));
-    setMsg(mode === "login" ? "Login erfolgreich ✅" : "Registrierung erfolgreich ✅");
-    // Hier würdest du normalerweise: fetch('/api/login'|'/api/register', {body: {email, pw}})
-  }
+function handleSubmit(e) {
+  e.preventDefault();
+
+  const err = validate();
+  if (err) return setMsg(err);
+alert(email);
+
+api.findUser(email)
+  .then((res) => {
+    const user = res.data;           // bei 200 gesetzt
+    alert("Login erfolgreich ✅");
+  })
+  .catch((err) => {
+    if (err.response?.status === 404) {
+      setMsg("Login fehlgeschlagen ❌");
+    } else {
+      setMsg("Serverfehler: Unable to log in.");
+    }
+  });
+
+
+}
+
+
+
 
 
   return(

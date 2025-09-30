@@ -25,12 +25,90 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 import type { CategoryCount } from '../models';
 // @ts-ignore
 import type { Product } from '../models';
+// @ts-ignore
+import type { User } from '../models';
 /**
  * FleamarketControllerApi - axios parameter creator
  * @export
  */
 export const FleamarketControllerApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Prüft ob man auf Grundlage der angegebenen Daten ein neuen Nutzer anlegen kann
+         * @summary Registrierung: Benutzerobjekt wird neu angelegt
+         * @param {User} user 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createUser: async (user: User, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'user' is not null or undefined
+            assertParamExists('createUser', 'user', user)
+            const localVarPath = `/usersRegistry`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (user !== undefined) {
+                for (const [key, value] of Object.entries(user)) {
+                    localVarQueryParameter[key] = value;
+                }
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Prüft ob die eingegebenen Daten zu einemBenutzer gehören
+         * @summary Login: Benutzerobjekt anhand der E-Mail suchen
+         * @param {string} email 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        findUser: async (email: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'email' is not null or undefined
+            assertParamExists('findUser', 'email', email)
+            const localVarPath = `/userLogin`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (email !== undefined) {
+                localVarQueryParameter['email'] = email;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Gibt eine Liste von Kategorien-Objekten(Name und Produktanzahl) zurück.
          * @summary Alle Kategorien abrufen
@@ -107,6 +185,32 @@ export const FleamarketControllerApiFp = function(configuration?: Configuration)
     const localVarAxiosParamCreator = FleamarketControllerApiAxiosParamCreator(configuration)
     return {
         /**
+         * Prüft ob man auf Grundlage der angegebenen Daten ein neuen Nutzer anlegen kann
+         * @summary Registrierung: Benutzerobjekt wird neu angelegt
+         * @param {User} user 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createUser(user: User, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createUser(user, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FleamarketControllerApi.createUser']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Prüft ob die eingegebenen Daten zu einemBenutzer gehören
+         * @summary Login: Benutzerobjekt anhand der E-Mail suchen
+         * @param {string} email 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async findUser(email: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.findUser(email, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FleamarketControllerApi.findUser']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Gibt eine Liste von Kategorien-Objekten(Name und Produktanzahl) zurück.
          * @summary Alle Kategorien abrufen
          * @param {*} [options] Override http request option.
@@ -142,6 +246,26 @@ export const FleamarketControllerApiFactory = function (configuration?: Configur
     const localVarFp = FleamarketControllerApiFp(configuration)
     return {
         /**
+         * Prüft ob man auf Grundlage der angegebenen Daten ein neuen Nutzer anlegen kann
+         * @summary Registrierung: Benutzerobjekt wird neu angelegt
+         * @param {User} user 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createUser(user: User, options?: RawAxiosRequestConfig): AxiosPromise<User> {
+            return localVarFp.createUser(user, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Prüft ob die eingegebenen Daten zu einemBenutzer gehören
+         * @summary Login: Benutzerobjekt anhand der E-Mail suchen
+         * @param {string} email 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        findUser(email: string, options?: RawAxiosRequestConfig): AxiosPromise<User> {
+            return localVarFp.findUser(email, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Gibt eine Liste von Kategorien-Objekten(Name und Produktanzahl) zurück.
          * @summary Alle Kategorien abrufen
          * @param {*} [options] Override http request option.
@@ -170,6 +294,30 @@ export const FleamarketControllerApiFactory = function (configuration?: Configur
  * @extends {BaseAPI}
  */
 export class FleamarketControllerApi extends BaseAPI {
+    /**
+     * Prüft ob man auf Grundlage der angegebenen Daten ein neuen Nutzer anlegen kann
+     * @summary Registrierung: Benutzerobjekt wird neu angelegt
+     * @param {User} user 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FleamarketControllerApi
+     */
+    public createUser(user: User, options?: RawAxiosRequestConfig) {
+        return FleamarketControllerApiFp(this.configuration).createUser(user, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Prüft ob die eingegebenen Daten zu einemBenutzer gehören
+     * @summary Login: Benutzerobjekt anhand der E-Mail suchen
+     * @param {string} email 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FleamarketControllerApi
+     */
+    public findUser(email: string, options?: RawAxiosRequestConfig) {
+        return FleamarketControllerApiFp(this.configuration).findUser(email, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Gibt eine Liste von Kategorien-Objekten(Name und Produktanzahl) zurück.
      * @summary Alle Kategorien abrufen
