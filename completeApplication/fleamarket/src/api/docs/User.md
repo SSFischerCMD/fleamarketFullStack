@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **location** | **string** |  | [optional] [default to undefined]
 **joinedAt** | **string** |  | [optional] [default to undefined]
 **phone** | **string** |  | [optional] [default to undefined]
+**cart** | [**Array&lt;CartItem&gt;**](CartItem.md) |  | [optional] [default to undefined]
 **verified** | **boolean** |  | [optional] [default to undefined]
 
 ## Example
@@ -27,6 +28,7 @@ const instance: User = {
     location,
     joinedAt,
     phone,
+    cart,
     verified,
 };
 ```

@@ -1,20 +1,18 @@
-import { useState } from "react";
-import StatisticItem from "./components/StatisticItem.jsx";
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
-import { Link } from "react-router-dom";
-import CartPage from "./components/CartItem.jsx";
-import LoginPage from "./components/LoginItem.jsx";
 import FilterPage from "./pages/FilterPage.jsx";
-import UserIcon from "./svg/UserIcon.jsx";
-import CartIcon from "./svg/CartIcon.jsx";
-import ProductList from "./components/ProductList.jsx";
-import MagnifyingGlass from "./svg/MagnifyingGlass.jsx";
-import { useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
 import NoFilterPage from "./pages/NoFilterPage.jsx";
 import ProductPage from "./pages/ProductsPage.jsx";
+import { Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import AccountPage from "./pages/AccountPage.jsx";
 function App() {
+
+  function PrivateRoute() {
+  const isAuthed = !!localStorage.getItem("user");
+  return isAuthed ? <Outlet /> : <Navigate to="/" replace />;
+}
   return (
     <>
       <div className="myApp">  
@@ -25,6 +23,14 @@ function App() {
                 </Route>
                 <Route path="products" element={<ProductPage/>}/>
                 <Route path="products/:searchTerm" element={<ProductPage />} /> 
+
+                {/* Geschützte Routen */}
+                <Route element={<PrivateRoute />}>
+                  <Route path="/account" element={<AccountPage />} />
+                </Route>
+
+                {/* Fallback */}
+                <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>       
       </div>
     </>

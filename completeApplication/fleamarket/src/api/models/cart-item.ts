@@ -14,6 +14,23 @@
 
 
 
-export * from './apis/cart-controller-api.ts';
-export * from './apis/fleamarket-controller-api.ts';
+/**
+ * 
+ * @export
+ * @interface CartItem
+ */
+export interface CartItem {
+    /**
+     * 
+     * @type {string}
+     * @memberof CartItem
+     */
+    'productId'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof CartItem
+     */
+    'quantity'?: number;
+}
 

@@ -2,10 +2,14 @@
 .npmignore
 .openapi-generator-ignore
 api.ts
+apis/cart-controller-api.ts
 apis/fleamarket-controller-api.ts
 base.ts
 common.ts
 configuration.ts
+docs/CartControllerApi.md
+docs/CartItem.md
+docs/CartItemDto.md
 docs/CategoryCount.md
 docs/FleamarketControllerApi.md
 docs/Product.md
@@ -13,6 +17,8 @@ docs/Seller.md
 docs/User.md
 git_push.sh
 index.ts
+models/cart-item-dto.ts
+models/cart-item.ts
 models/category-count.ts
 models/index.ts
 models/product.ts
